@@ -109,7 +109,7 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
       {/* Main Grid: Form Inputs (8 cols) + Live Estimation Sidebar (4 cols) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Form Sections (8 Cols) */}
-        <div className="lg:col-span-8 flex flex-col gap-5">
+        <div className="min-w-0 lg:col-span-8 flex flex-col gap-5">
           {/* SECTION 1: Salary & Period Configuration */}
           <div className="bg-white rounded-2xl p-5 sm:p-6 border border-outline-variant/40 shadow-xs flex flex-col gap-4">
             <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30">
@@ -698,7 +698,7 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
         </div>
 
         {/* Right Column: Live Computation Preview Card (4 Cols) */}
-        <div className="lg:col-span-4 flex flex-col gap-4">
+        <div className="min-w-0 lg:col-span-4 flex flex-col gap-4">
           <div className="p-5 sm:p-6 rounded-2xl bg-white border border-outline-variant/40 shadow-xs flex flex-col gap-4 sticky top-20">
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30">

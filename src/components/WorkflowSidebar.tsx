@@ -21,7 +21,7 @@ export function WorkflowSidebar({ onNavigateHome }: { onNavigateHome: () => void
 
   return (
     <>
-      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-60 flex-col overflow-hidden border-r border-slate-200 bg-white px-4 py-6 md:flex lg:w-64">
+      <aside className="fixed left-0 top-0 z-40 hidden h-[100dvh] w-60 flex-col overflow-hidden border-r border-slate-200 bg-white px-4 py-6 md:flex lg:w-64">
         <SidebarContent onNavigateHome={onNavigateHome} />
       </aside>
 

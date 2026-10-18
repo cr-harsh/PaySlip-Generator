@@ -153,7 +153,7 @@ export const Step1ClientCandidate: React.FC<Step1Props> = ({
       {/* Main 12-Column Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Selectors & Controls (7 Cols) */}
-        <div className="lg:col-span-7 flex flex-col gap-5">
+        <div className="min-w-0 lg:col-span-7 flex flex-col gap-5">
           {/* Selection Card */}
           <div className="p-5 sm:p-6 rounded-2xl bg-white border border-outline-variant/40 shadow-xs flex flex-col gap-5">
             {/* 1. Client Selector */}
@@ -484,7 +484,7 @@ export const Step1ClientCandidate: React.FC<Step1Props> = ({
           </div>
 
           {/* Mini Portfolio Analytics Cards */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 min-[390px]:grid-cols-3 gap-3">
             <div className="p-3.5 rounded-xl bg-white border border-outline-variant/40 shadow-xs flex flex-col">
               <span className="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
                 Client Ledger
@@ -519,7 +519,7 @@ export const Step1ClientCandidate: React.FC<Step1Props> = ({
         </div>
 
         {/* Right Column: Rich Identity Dossier (5 Cols) */}
-        <div className="lg:col-span-5 flex flex-col gap-4">
+        <div className="min-w-0 lg:col-span-5 flex flex-col gap-4">
           {selectedCandidate && selectedClient ? (
             /* Populated Candidate Dossier Card */
             <div className="p-5 sm:p-6 rounded-2xl bg-white border border-outline-variant/40 shadow-sm flex flex-col gap-5 relative overflow-hidden transition-all duration-300">

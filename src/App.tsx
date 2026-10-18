@@ -146,7 +146,7 @@ export function App() {
   }
 
   return (
-    <div className="min-h-screen bg-surface flex flex-col text-on-surface antialiased font-sans">
+    <div className="min-h-[100dvh] bg-surface flex flex-col text-on-surface antialiased font-sans">
       {/* Top Application Header */}
       <Header
         selectedCandidate={selectedCandidate}
@@ -156,9 +156,9 @@ export function App() {
       />
 
       {/* Main Content Area with Header offset */}
-      <div className="min-h-screen md:ml-60 lg:ml-64 md:h-screen md:overflow-y-auto md:overscroll-contain">
+      <div className="min-h-[100dvh] md:ml-60 lg:ml-64 md:h-[100dvh] md:overflow-y-auto md:overscroll-contain">
         <WorkflowSidebar onNavigateHome={() => setScreen('home')} />
-        <div className="min-w-0 flex min-h-screen flex-col pt-16 md:min-h-full">
+        <div className="min-w-0 flex min-h-[100dvh] flex-col pt-16 md:min-h-full">
         {/* Sub-header Hero & Stepper Shell */}
         <div className="bg-white border-b border-outline-variant/40 shadow-2xs">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
@@ -210,7 +210,7 @@ export function App() {
         </div>
 
         {/* Dynamic Workflow Step Content */}
-        <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-1">
+        <main className="max-w-7xl w-full min-w-0 mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-[calc(2.5rem+env(safe-area-inset-bottom))] md:pb-8 flex-1">
           {currentStep === 1 && (
             <Step1ClientCandidate
               clients={MOCK_CLIENTS}

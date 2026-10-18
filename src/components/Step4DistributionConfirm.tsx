@@ -124,7 +124,7 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
       {/* Main Grid: Dynamic State View (7 Cols) + Slip Snapshot (5 Cols) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* LEFT COLUMN: Dynamic State View */}
-        <div className="lg:col-span-7 flex flex-col gap-5">
+        <div className="min-w-0 lg:col-span-7 flex flex-col gap-5">
           {viewState === 'review' ? (
             /* STATE A: ACTIVE REVIEW VIEW */
             <div className="bg-white rounded-2xl p-5 sm:p-6 border border-outline-variant/40 shadow-sm flex flex-col gap-5 relative overflow-hidden">
@@ -389,7 +389,7 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
                   </span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
                   <div>
                     <span className="text-[10px] uppercase font-bold text-outline block">
                       Candidate
@@ -440,7 +440,7 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
         </div>
 
         {/* RIGHT COLUMN: Live Slip Snapshot & Read-Only Staging Info */}
-        <div className="lg:col-span-5 flex flex-col gap-4">
+        <div className="min-w-0 lg:col-span-5 flex flex-col gap-4">
           <div className="bg-white p-5 rounded-2xl border border-outline-variant/40 shadow-sm flex flex-col gap-3">
             <div className="flex items-center justify-between pb-2 border-b border-outline-variant/30 text-xs">
               <span className="font-bold text-on-surface flex items-center gap-1.5">
@@ -541,8 +541,8 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
 
       {/* STATE B: CONFIRMATION MODAL DIALOG */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-outline-variant/60 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] bg-black/50 backdrop-blur-xs">
+          <div className="my-auto max-h-[calc(100dvh-2rem-env(safe-area-inset-bottom))] bg-white rounded-2xl max-w-md w-full shadow-2xl border border-outline-variant/60 overflow-y-auto overscroll-contain animate-in fade-in zoom-in-95 duration-200">
             {/* Modal Header */}
             <div className="p-5 border-b border-outline-variant/30 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
@@ -596,7 +596,7 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
                   </div>
                   <div className="flex justify-between">
                     <span className="text-on-surface-variant">Recipient Email:</span>
-                    <span className="font-mono text-on-surface">
+                    <span className="min-w-0 break-all text-right font-mono text-on-surface">
                       {selectedCandidate.email}
                     </span>
                   </div>
@@ -622,12 +622,12 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
             )}
 
             {/* Modal Footer */}
-            <div className="p-4 bg-surface-container-low border-t border-outline-variant/30 flex justify-end gap-2.5">
+            <div className="p-4 bg-surface-container-low border-t border-outline-variant/30 flex flex-col-reverse sm:flex-row justify-end gap-2.5">
               <button
                 type="button"
                 disabled={isPreparing}
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 rounded-xl bg-white hover:bg-surface-container text-on-surface font-semibold text-xs transition-colors border border-outline-variant/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-white hover:bg-surface-container text-on-surface font-semibold text-xs transition-colors border border-outline-variant/40 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Cancel
               </button>
@@ -635,7 +635,7 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
                 type="button"
                 disabled={isPreparing}
                 onClick={handleConfirm}
-                className="px-5 py-2 rounded-xl bg-primary hover:bg-primary-container text-white font-bold text-xs transition-colors shadow-xs flex items-center gap-1.5 disabled:opacity-75 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto px-5 py-2 rounded-xl bg-primary hover:bg-primary-container text-white font-bold text-xs transition-colors shadow-xs flex items-center justify-center gap-1.5 disabled:opacity-75 disabled:cursor-not-allowed"
               >
                 {isPreparing ? (
                   <>

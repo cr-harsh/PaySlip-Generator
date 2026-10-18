@@ -83,7 +83,7 @@ export const Step3BreakdownPreview: React.FC<Step3Props> = ({
       {/* Main 12-Column Grid: Left Column Audit Breakdown (7 Cols) | Right Column Printable A4 Document (5 Cols) */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
         {/* LEFT COLUMN: Calculation & Ledger Breakdown (7 Cols) */}
-        <div className="xl:col-span-7 flex flex-col gap-5">
+        <div className="min-w-0 xl:col-span-7 flex flex-col gap-5">
           {/* 1. Contract & Proration Profile Card */}
           <div className="bg-white rounded-2xl p-5 sm:p-6 border border-outline-variant/40 shadow-xs flex flex-col gap-4">
             <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30">
@@ -496,7 +496,7 @@ export const Step3BreakdownPreview: React.FC<Step3Props> = ({
         </div>
 
         {/* RIGHT COLUMN: Printable Executive A4 Payslip Document (5 Cols) */}
-        <div className="xl:col-span-5 flex flex-col gap-4">
+        <div className="min-w-0 xl:col-span-5 flex flex-col gap-4">
           {/* Viewport Control Bar */}
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-1.5 text-xs text-on-surface-variant font-medium">

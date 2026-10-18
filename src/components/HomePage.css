@@ -1,5 +1,6 @@
 .derive-homepage {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .derive-homepage * {
@@ -12,6 +13,7 @@
 
 .derive-homepage .h {
   min-height: 100vh;
+  min-height: 100dvh;
   background: #fff;
   color: #0f172a;
   font-family: 'Plus Jakarta Sans', sans-serif;
