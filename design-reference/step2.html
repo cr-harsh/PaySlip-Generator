@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#1d4ed8", "inverse-surface": "#283044", "secondary": "#0051d5", "on-tertiary-fixed-variant": "#005049", "surface": "#faf8ff", "error-container": "#ffdad6", "on-primary": "#ffffff", "outline": "#747686", "surface-tint": "#2151da", "tertiary-fixed": "#89f5e7", "secondary-container": "#316bf3", "surface-dim": "#d2d9f4", "on-tertiary": "#ffffff", "tertiary": "#004e47", "on-secondary": "#ffffff", "surface-variant": "#dae2fd", "on-error-container": "#93000a", "primary-fixed": "#dce1ff", "on-primary-container": "#cad3ff", "on-primary-fixed-variant": "#0039b5", "on-surface": "#131b2e", "inverse-on-surface": "#eef0ff", "on-error": "#ffffff", "on-secondary-container": "#fefcff", "tertiary-fixed-dim": "#6bd8cb", "secondary-fixed": "#dbe1ff", "on-primary-fixed": "#001551", "error": "#ba1a1a", "on-tertiary-container": "#7be7d9", "surface-container-highest": "#dae2fd", "on-secondary-fixed": "#00174b", "primary": "#0037b0", "secondary-fixed-dim": "#b4c5ff", "primary-fixed-dim": "#b7c4ff", "surface-container": "#eaedff", "on-tertiary-fixed": "#00201d", "surface-container-low": "#f2f3ff", "surface-container-high": "#e2e7ff", "background": "#faf8ff", "outline-variant": "#c4c5d7", "tertiary-container": "#00685f", "surface-bright": "#faf8ff", "on-background": "#131b2e", "inverse-primary": "#b7c4ff", "on-surface-variant": "#434655", "on-secondary-fixed-variant": "#003ea8", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.25rem", "margin": "2rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-mobile": "1rem", "gutter": "1.25rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "headline-sm": ["Manrope"], "caption-caps": ["Manrope"], "body-md": ["Manrope"], "body-sm": ["Manrope"], "body-lg": ["Manrope"], "headline-lg": ["Manrope"], "label-numeric-md": ["JetBrains Mono"], "label-numeric-sm": ["JetBrains Mono"], "display-lg": ["Manrope"], "label-numeric-lg": ["JetBrains Mono"] }, "fontSize": { "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "caption-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-numeric-md": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-numeric-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-numeric-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script>
+</head>
+
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div class="h-16 w-full px-margin flex items-center justify-between">
+            <div class="flex items-center gap-space-md">
+                <div class="flex items-center gap-space-sm"><img alt="Payslip Studio Emblem"
+                        class="h-8 w-auto object-contain"
+                        src="https://lh3.googleusercontent.com/aida/AEtjO1X6MVUTQlm-8QkHyD6ASj13hUA6yerZLxRuUkZlLL0Zx58Rp83OmatoRcE-PSdUGZ9OsQZ7IBksgAwEW0C8IvaUPf6j5Nq7vgRysMNLqJtY6kLQQwELalnhT_l0YtlCKbpm4z8pfVjU6wwYZ_5h4LyKPJppkFget9JBBK3fA54tUJ56YdzxKwQCfEugju9qtBiLew1EK7KodwGV1VvO6nIwWnm2tEo21P6XU6lXdUK-RtVwQGo-igzV97o" /><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Payslip Studio</span>
+                </div><span
+                    class="px-space-sm py-0.5 rounded-lg bg-surface-container-low text-on-surface-variant font-caption-caps text-caption-caps border border-outline-variant">Frontend
+                    demo</span>
+                <div
+                    class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container text-on-surface font-caption-caps text-caption-caps">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span><span>Draft: EMP-1024 (Oct
+                        2026)</span></div>
+            </div>
+            <div class="flex items-center gap-space-md">
+                <div class="hidden md:flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                    <span class="material-symbols-outlined text-sm">cloud_done</span><span>Auto-saved 2m ago</span>
+                </div><a
+                    class="hidden sm:flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors"
+                    data-path="help-support" href="#"><span
+                        class="material-symbols-outlined text-base">help</span><span>Help</span></a><button
+                    class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"
+                    type="button"><span class="material-symbols-outlined">notifications</span><span
+                        class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button>
+                <div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><img
+                        alt="Profile" class="w-8 h-8 rounded-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2gk-wmc-Ygcuj7LX9PO4NP31Crxrk8B1LTxjrJ8fKXAMSmp112if83hE_qMf-d7nMUwnivjOK6fqBpA9x1MiuRz6M5WZ6E6S-4qw_HoV5CGAfc05z920qyJt57Ct7iZKzvyMWtvYmeAy1dLxGGBkVDW4BmJSyaQWmILF3jRyEoecZZTJYhkDPmVpyqvHkdNFUKyh_2uOSRuyfrEng2RAgE6t7Eglgcw5426_gnsFtGcJBgNgCVrg7DA" />
+                    <div class="hidden lg:flex flex-col text-left"><span
+                            class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Priya
+                            Nair</span><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant leading-tight">HR
+                            Ops</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="pt-16 bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+        <div class="max-w-6xl mx-auto px-margin py-space-lg">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+                <div>
+                    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs">Generate payslip</h1>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Prepare, review and confirm a candidate
+                        payslip.</p>
+                </div>
+                <nav class="hidden sm:flex items-center gap-space-md font-body-sm text-body-sm"
+                    data-active-classes="text-primary font-semibold"><a aria-current="page"
+                        class="transition-colors text-primary font-semibold" data-path="generate-payslip-employee"
+                        href="#">Flow Overview</a><a
+                        class="text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="payroll-registry" href="#">Ledger Registry</a></nav>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-space-sm">
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high text-on-surface">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        <span class="material-symbols-outlined text-sm font-bold">check</span></div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 1</span><span
+                            class="font-body-sm text-body-sm font-semibold text-on-surface">Employee</span></div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high border-b-2 border-primary text-on-surface">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        2</div>
+                    <div class="flex flex-col"><span class="font-caption-caps text-caption-caps text-primary">Step 2
+                            (Active)</span><span class="font-body-sm text-body-sm font-semibold text-on-surface">Salary
+                            &amp; attendance</span></div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        3</div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 3</span><span
+                            class="font-body-sm text-body-sm font-normal text-on-surface-variant">Review payslip</span>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        4</div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 4</span><span
+                            class="font-body-sm text-body-sm font-normal text-on-surface-variant">Distribution</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="w-full max-w-6xl mx-auto px-margin py-space-lg bg-surface">
+        <div class="flex flex-col w-full">
+            <!-- Interactive State Sync for Shell Step Visual Guidance -->
+            <div
+                class="mb-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md p-space-md rounded-xl bg-surface-container-low shadow-sm">
+                <div class="flex items-center gap-space-sm">
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+                        <span class="material-symbols-outlined text-sm font-semibold">person</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-space-xs">
+                            <span
+                                class="font-caption-caps text-caption-caps text-primary tracking-wider uppercase">Active
+                                Phase</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                            <span class="font-body-sm text-body-sm font-semibold text-on-surface">Step 1: Identity &amp;
+                                Affiliation</span>
+                        </div>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Select client organization and
+                            candidate to initialize payroll preparation and legal tax baseline.</p>
+                    </div>
+                </div>
+                <!-- Visual Ledger Calibration Indicator -->
+                <div class="flex items-center gap-space-md self-end md:self-auto">
+                    <div class="hidden sm:flex flex-col text-right">
+                        <span class="font-caption-caps text-caption-caps text-on-surface-variant">Statutory Ledger
+                            Rule</span>
+                        <span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-semibold">Sec 192
+                            (IT Act, 1961)</span>
+                    </div>
+                    <div
+                        class="px-space-sm py-1 rounded bg-surface-container-highest text-on-surface font-caption-caps text-caption-caps flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs text-tertiary">verified</span>
+                        <span>Auto-Sync Active</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Bento Form & Preview Canvas -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-space-xl">
+                <!-- Left Column: Selection Controls & Metadata (7 cols) -->
+                <div class="lg:col-span-7 flex flex-col gap-space-lg">
+                    <!-- Selection Card -->
+                    <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-lg">
+                        <div>
+                            <div class="flex items-center justify-between mb-space-xs">
+                                <label
+                                    class="font-body-sm text-body-sm font-semibold text-on-surface flex items-center gap-1.5">
+                                    <span>Client / Organization</span>
+                                    <span class="text-error font-body-sm">*</span>
+                                </label>
+                                <span class="font-caption-caps text-caption-caps text-on-surface-variant">Active
+                                    Portfolios (14)</span>
+                            </div>
+                            <!-- Custom Interactive Searchable Dropdown Style Input -->
+                            <div class="relative group">
+                                <button
+                                    class="w-full text-left p-space-sm bg-surface-container-lowest rounded-lg hover:bg-surface-container-low transition-colors shadow-sm flex items-center justify-between focus:outline-none"
+                                    id="clientDropdownBtn" type="button">
+                                    <div class="flex items-center gap-space-sm min-w-0">
+                                        <div
+                                            class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm font-bold flex-shrink-0">
+                                            NT
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <div class="flex items-center gap-space-xs flex-wrap">
+                                                <span
+                                                    class="font-body-lg text-body-lg font-semibold text-on-surface truncate">Northstar
+                                                    Technologies Pvt Ltd</span>
+                                                <span
+                                                    class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-numeric-sm text-label-numeric-sm">#CL-8802</span>
+                                            </div>
+                                            <span
+                                                class="font-body-sm text-body-sm text-on-surface-variant truncate">Bangalore
+                                                HQ • 124 Active Staff • GSTIN 29AAACN8492Q1Z4</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-1 text-on-surface-variant pl-space-xs flex-shrink-0">
+                                        <span class="material-symbols-outlined text-lg">unfold_more</span>
+                                    </div>
+                                </button>
+                                <!-- Dropdown Options Panel (Hidden by default, interactive) -->
+                                <div class="hidden absolute top-full left-0 right-0 mt-1 z-30 p-1.5 bg-surface-container-lowest rounded-xl shadow-xl flex-col gap-1"
+                                    id="clientDropdownMenu">
+                                    <div class="p-2 bg-surface-container-low rounded-lg mb-1 flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-sm text-on-surface-variant">search</span>
+                                        <input
+                                            class="bg-transparent font-body-sm text-body-sm w-full outline-none text-on-surface placeholder:text-on-surface-variant"
+                                            placeholder="Search by name, ID or GSTIN..." type="text" />
+                                    </div>
+                                    <div
+                                        class="p-space-sm rounded-lg bg-surface-container-high flex items-center justify-between cursor-pointer">
+                                        <div>
+                                            <div class="font-body-sm text-body-sm font-semibold text-on-surface">
+                                                Northstar Technologies Pvt Ltd</div>
+                                            <div class="font-caption-caps text-caption-caps text-on-surface-variant">
+                                                #CL-8802 • Bangalore HQ</div>
+                                        </div>
+                                        <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    </div>
+                                    <div
+                                        class="p-space-sm rounded-lg hover:bg-surface-container-low flex items-center justify-between cursor-pointer transition-colors">
+                                        <div>
+                                            <div class="font-body-sm text-body-sm font-semibold text-on-surface">Aura
+                                                Health Systems Ltd</div>
+                                            <div class="font-caption-caps text-caption-caps text-on-surface-variant">
+                                                #CL-6240 • Hyderabad Hub</div>
+                                        </div>
+                                        <span class="font-caption-caps text-caption-caps text-outline">89 Staff</span>
+                                    </div>
+                                    <div
+                                        class="p-space-sm rounded-lg hover:bg-surface-container-low flex items-center justify-between cursor-pointer transition-colors">
+                                        <div>
+                                            <div class="font-body-sm text-body-sm font-semibold text-on-surface">Zenith
+                                                FinTech Labs India</div>
+                                            <div class="font-caption-caps text-caption-caps text-on-surface-variant">
+                                                #CL-3109 • Mumbai BKC</div>
+                                        </div>
+                                        <span class="font-caption-caps text-caption-caps text-outline">210 Staff</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Candidate / Application Selection Dependent Control -->
+                        <div>
+                            <div class="flex items-center justify-between mb-space-xs">
+                                <label
+                                    class="font-body-sm text-body-sm font-semibold text-on-surface flex items-center gap-1.5">
+                                    <span>Candidate / Application</span>
+                                    <span class="text-error font-body-sm">*</span>
+                                </label>
+                                <div class="flex items-center gap-1 font-caption-caps text-caption-caps text-secondary">
+                                    <span class="material-symbols-outlined text-xs">filter_list</span>
+                                    <span>12 Eligible Candidates</span>
+                                </div>
+                            </div>
+                            <div class="relative group">
+                                <button
+                                    class="w-full text-left p-space-sm bg-surface-container-lowest rounded-lg hover:bg-surface-container-low transition-colors shadow-sm flex items-center justify-between focus:outline-none"
+                                    id="candidateDropdownBtn" type="button">
+                                    <div class="flex items-center gap-space-sm min-w-0">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm flex items-center justify-center font-bold flex-shrink-0">
+                                            AS
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <div class="flex items-center gap-space-xs flex-wrap">
+                                                <span
+                                                    class="font-body-lg text-body-lg font-semibold text-on-surface truncate"
+                                                    id="selectedCandidateName">Aarav Sharma</span>
+                                                <span
+                                                    class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-label-numeric-sm text-label-numeric-sm font-semibold"
+                                                    id="selectedCandidateId">EMP-1024</span>
+                                            </div>
+                                            <span class="font-body-sm text-body-sm text-on-surface-variant truncate"
+                                                id="selectedCandidateRole">Offer: Senior Full-Stack Engineer •
+                                                Engineering Dept • Bangalore</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-space-xs text-on-surface-variant pl-space-xs flex-shrink-0">
+                                        <span class="material-symbols-outlined text-lg">arrow_drop_down</span>
+                                    </div>
+                                </button>
+                                <!-- Candidates Dropdown Listing -->
+                                <div class="hidden absolute top-full left-0 right-0 mt-1 z-30 p-1.5 bg-surface-container-lowest rounded-xl shadow-xl flex-col gap-1 max-h-72 overflow-y-auto"
+                                    id="candidateDropdownMenu">
+                                    <div class="p-space-sm rounded-lg bg-surface-container-high flex items-center justify-between cursor-pointer"
+                                        onclick="selectCandidate('Aarav Sharma', 'EMP-1024', 'Senior Full-Stack Engineer', '15 June 2025', '1 yr 4 mos', 'ABCDE1234F', '101234567890', true)">
+                                        <div class="flex items-center gap-space-sm">
+                                            <div
+                                                class="w-7 h-7 rounded-full bg-primary-container text-on-primary font-caption-caps text-caption-caps flex items-center justify-center font-bold">
+                                                AS</div>
+                                            <div>
+                                                <div class="font-body-sm text-body-sm font-semibold text-on-surface">
+                                                    Aarav Sharma • EMP-1024</div>
+                                                <div
+                                                    class="font-caption-caps text-caption-caps text-on-surface-variant">
+                                                    Senior Full-Stack Engineer (Complete Info)</div>
+                                            </div>
+                                        </div>
+                                        <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    </div>
+                                    <div class="p-space-sm rounded-lg hover:bg-surface-container-low flex items-center justify-between cursor-pointer transition-colors"
+                                        onclick="selectCandidate('Meera Nambiar', 'EMP-1088', 'Product UI/UX Designer', '01 Oct 2025', '1 yr 0 mos', 'NOT_PROVIDED', 'NOT_PROVIDED', false)">
+                                        <div class="flex items-center gap-space-sm">
+                                            <div
+                                                class="w-7 h-7 rounded-full bg-error-container text-on-error-container font-caption-caps text-caption-caps flex items-center justify-center font-bold">
+                                                MN</div>
+                                            <div>
+                                                <div class="font-body-sm text-body-sm font-semibold text-on-surface">
+                                                    Meera Nambiar • EMP-1088</div>
+                                                <div class="font-caption-caps text-caption-caps text-error">Missing
+                                                    PAN/UAN (Identity Incomplete)</div>
+                                            </div>
+                                        </div>
+                                        <span
+                                            class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-caption-caps text-caption-caps">Edge
+                                            case</span>
+                                    </div>
+                                    <div class="p-space-sm rounded-lg hover:bg-surface-container-low flex items-center justify-between cursor-pointer transition-colors"
+                                        onclick="selectCandidate('Rohan Varma', 'EMP-1052', 'DevOps Specialist', '12 Jan 2026', '9 mos', 'BNMOP9981K', '109923847261', true)">
+                                        <div class="flex items-center gap-space-sm">
+                                            <div
+                                                class="w-7 h-7 rounded-full bg-surface-container text-on-surface font-caption-caps text-caption-caps flex items-center justify-center font-bold">
+                                                RV</div>
+                                            <div>
+                                                <div class="font-body-sm text-body-sm font-semibold text-on-surface">
+                                                    Rohan Varma • EMP-1052</div>
+                                                <div
+                                                    class="font-caption-caps text-caption-caps text-on-surface-variant">
+                                                    DevOps Specialist • Cloud Infrastructure</div>
+                                            </div>
+                                        </div>
+                                        <span class="font-caption-caps text-caption-caps text-outline">Verified</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Quick Switcher Bar for edge case simulation -->
+                        <div
+                            class="p-space-sm rounded-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+                            <div
+                                class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                                <span class="material-symbols-outlined text-sm text-secondary">tune</span>
+                                <span>Scenario Preview Tool:</span>
+                            </div>
+                            <div class="inline-flex rounded-lg bg-surface-container p-0.5">
+                                <button
+                                    class="px-space-sm py-1 rounded-md text-on-surface bg-surface-container-lowest shadow-sm font-caption-caps text-caption-caps transition-all"
+                                    id="viewCompleteBtn" onclick="setScenario('complete')" type="button">Verified
+                                    Record</button>
+                                <button
+                                    class="px-space-sm py-1 rounded-md text-on-surface-variant hover:text-on-surface font-caption-caps text-caption-caps transition-all"
+                                    id="viewMissingBtn" onclick="setScenario('missing')" type="button">Missing PAN /
+                                    UAN</button>
+                                <button
+                                    class="px-space-sm py-1 rounded-md text-on-surface-variant hover:text-on-surface font-caption-caps text-caption-caps transition-all"
+                                    id="viewEmptyBtn" onclick="setScenario('empty')" type="button">Blank Client
+                                    State</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Compliance & Processing Advisory Notice -->
+                    <div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md"
+                        id="statutoryNoteBox">
+                        <div
+                            class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+                            <span class="material-symbols-outlined text-base">gavel</span>
+                        </div>
+                        <div class="flex flex-col gap-0.5">
+                            <span class="font-body-sm text-body-sm font-semibold text-on-surface">Income Tax Deductions
+                                &amp; Statutory Compliance</span>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                Employee PAN ensures accurate TDS calculation under Section 192. Unlinked or missing PAN
+                                will trigger higher deduction rate (flat 20%) in subsequent review steps.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Quick Ledger Mini Analytics Inline Component -->
+                    <div class="grid grid-cols-3 gap-space-sm">
+                        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col">
+                            <span class="font-caption-caps text-caption-caps text-on-surface-variant">Client Ledger
+                                Balance</span>
+                            <span
+                                class="font-label-numeric-lg text-label-numeric-lg font-semibold text-on-surface mt-1">₹42,80,500</span>
+                            <div
+                                class="flex items-center gap-1 mt-1 text-tertiary font-label-numeric-sm text-label-numeric-sm">
+                                <span class="material-symbols-outlined text-xs">arrow_upward</span>
+                                <span>Allocated OCT-26</span>
+                            </div>
+                        </div>
+                        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col">
+                            <span class="font-caption-caps text-caption-caps text-on-surface-variant">Pay Cycle
+                                Frequency</span>
+                            <span
+                                class="font-label-numeric-lg text-label-numeric-lg font-semibold text-on-surface mt-1">Monthly</span>
+                            <span class="font-caption-caps text-caption-caps text-on-surface-variant mt-1">Cut-off: 25th
+                                of month</span>
+                        </div>
+                        <div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col">
+                            <span class="font-caption-caps text-caption-caps text-on-surface-variant">Provident Fund
+                                Circle</span>
+                            <span
+                                class="font-label-numeric-lg text-label-numeric-lg font-semibold text-on-surface mt-1">KR
+                                / BNG / 04</span>
+                            <span class="font-caption-caps text-caption-caps text-on-surface-variant mt-1">EPFO Reg:
+                                Certified</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Rich Identity Dossier (5 cols) -->
+                <div class="lg:col-span-5 flex flex-col gap-space-md">
+                    <!-- Primary Rich Identity Card: State 1 (Active / Complete Record) -->
+                    <div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-md flex flex-col gap-space-lg relative overflow-hidden transition-all duration-300"
+                        id="dossierCardComplete">
+                        <!-- Header Banner & State Indicators -->
+                        <div class="flex items-center justify-between pb-space-sm">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+                                <span class="font-caption-caps text-caption-caps text-on-surface-variant">Profile
+                                    Verification</span>
+                            </div>
+                            <div class="flex items-center gap-space-xs">
+                                <span
+                                    class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-caption-caps text-caption-caps flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-xs">verified</span>
+                                    <span>Identity Matched</span>
+                                </span>
+                                <span
+                                    class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-caption-caps text-caption-caps">
+                                    Ready for payroll
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Candidate Profile Core Identity -->
+                        <div class="flex items-start gap-space-md">
+                            <div class="relative">
+                                <div class="w-16 h-16 rounded-xl bg-primary text-on-primary font-headline-lg text-headline-lg font-bold flex items-center justify-center shadow-sm"
+                                    id="profileAvatar">
+                                    AS
+                                </div>
+                                <div
+                                    class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shadow">
+                                    <span
+                                        class="material-symbols-outlined text-xs text-primary font-bold">check_circle</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <div class="flex items-center gap-space-xs">
+                                    <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface truncate"
+                                        id="cardCandidateName">Aarav Sharma</h2>
+                                </div>
+                                <p class="font-body-md text-body-md text-on-surface-variant" id="cardCandidateRole">
+                                    Software Engineer</p>
+                                <div class="flex items-center gap-space-xs mt-1">
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">EMP
+                                        ID:</span>
+                                    <span class="font-label-numeric-sm text-label-numeric-sm font-semibold text-primary"
+                                        id="cardEmpId">EMP-1024</span>
+                                    <span class="text-outline">•</span>
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">Full Time
+                                        • Permanent</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Joining & Tenure Micro Ledger Row -->
+                        <div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="material-symbols-outlined text-base text-secondary">calendar_month</span>
+                                <div class="flex flex-col">
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">Date of
+                                        Joining</span>
+                                    <span class="font-body-sm text-body-sm font-semibold text-on-surface"
+                                        id="cardDoj">15 June 2025</span>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container text-on-surface">
+                                <span class="material-symbols-outlined text-xs text-secondary">history</span>
+                                <span class="font-label-numeric-sm text-label-numeric-sm font-semibold"
+                                    id="cardTenure">1 yr 4 mos</span>
+                            </div>
+                        </div>
+                        <!-- Tax & Social Security Identifiers (Tabular Financial Ledger Style) -->
+                        <div class="flex flex-col rounded-lg bg-surface-container-low p-space-md gap-space-md">
+                            <div class="flex items-center justify-between">
+                                <span class="font-caption-caps text-caption-caps text-on-surface-variant">Statutory
+                                    Identity Tokens</span>
+                                <span class="font-caption-caps text-caption-caps text-primary">Verified with NSDL /
+                                    EPFO</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-space-sm">
+                                <!-- PAN Block -->
+                                <div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col">
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">Permanent
+                                        Account No (PAN)</span>
+                                    <div class="flex items-center justify-between mt-1">
+                                        <span
+                                            class="font-label-numeric-md text-label-numeric-md font-bold text-on-surface"
+                                            id="cardPan">ABCDE1234F</span>
+                                        <span class="material-symbols-outlined text-sm text-tertiary"
+                                            id="cardPanStatus">check_circle</span>
+                                    </div>
+                                    <span class="font-caption-caps text-caption-caps text-outline mt-1">Valid &amp;
+                                        Aadhaar Linked</span>
+                                </div>
+                                <!-- UAN Block -->
+                                <div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col">
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">EPF
+                                        Universal Account (UAN)</span>
+                                    <div class="flex items-center justify-between mt-1">
+                                        <span
+                                            class="font-label-numeric-md text-label-numeric-md font-bold text-on-surface"
+                                            id="cardUan">101234567890</span>
+                                        <span class="material-symbols-outlined text-sm text-tertiary"
+                                            id="cardUanStatus">check_circle</span>
+                                    </div>
+                                    <span class="font-caption-caps text-caption-caps text-outline mt-1">Active for
+                                        Monthly Remittance</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Edge Case Notification Rule Banner (Dynamic) -->
+                        <div class="hidden p-space-sm rounded-lg bg-error-container text-on-error-container flex items-start gap-space-xs"
+                            id="missingWarningBanner">
+                            <span
+                                class="material-symbols-outlined text-base text-error flex-shrink-0 mt-0.5">warning</span>
+                            <div class="flex flex-col">
+                                <span class="font-body-sm text-body-sm font-semibold">Missing Statutory
+                                    Identifiers</span>
+                                <p class="font-body-sm text-body-sm">
+                                    PAN and UAN are marked as 'Not provided'. Step 2 deductions will default to Section
+                                    206AA withholding rates until updated.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Compensation Structure Snapshot -->
+                        <div class="flex flex-col gap-space-xs">
+                            <div
+                                class="flex items-center justify-between font-caption-caps text-caption-caps text-on-surface-variant">
+                                <span>Contracted Annual CTC</span>
+                                <span>Monthly Base Equivalent</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        class="font-label-numeric-lg text-label-numeric-lg font-bold text-on-surface">₹
+                                        24,00,000</span>
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">/
+                                        annum</span>
+                                </div>
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        class="font-label-numeric-md text-label-numeric-md font-semibold text-primary">₹
+                                        2,00,000</span>
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">/ mo
+                                        gross</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Identity Audit Stamp -->
+                        <div
+                            class="flex items-center justify-between pt-space-xs text-on-surface-variant font-caption-caps text-caption-caps">
+                            <div class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs">fingerprint</span>
+                                <span>Audit Key: SEC-1024-NSTAR</span>
+                            </div>
+                            <span>Refreshed Today, 09:42 AM</span>
+                        </div>
+                    </div>
+                    <!-- Alternate State 2: Candidate with Missing Identity Info (Interactive preview card) -->
+                    <div class="hidden p-space-lg rounded-xl bg-surface-container-lowest shadow-md flex-col gap-space-lg relative overflow-hidden transition-all duration-300"
+                        id="dossierCardMissing">
+                        <div class="flex items-center justify-between pb-space-sm">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+                                <span class="font-caption-caps text-caption-caps text-error">Compliance Attention
+                                    Needed</span>
+                            </div>
+                            <span
+                                class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-caption-caps text-caption-caps font-semibold">
+                                Action Recommended
+                            </span>
+                        </div>
+                        <div class="flex items-start gap-space-md">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-error-container text-on-error-container font-headline-lg text-headline-lg font-bold flex items-center justify-center">
+                                MN
+                            </div>
+                            <div class="flex flex-col min-w-0">
+                                <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface truncate">Meera
+                                    Nambiar</h2>
+                                <p class="font-body-md text-body-md text-on-surface-variant">Product UI/UX Designer</p>
+                                <div class="flex items-center gap-space-xs mt-1">
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">EMP
+                                        ID:</span>
+                                    <span
+                                        class="font-label-numeric-sm text-label-numeric-sm font-semibold text-on-surface">EMP-1088</span>
+                                    <span class="text-outline">•</span>
+                                    <span
+                                        class="font-caption-caps text-caption-caps text-on-surface-variant">Probationary
+                                        Staff</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Missing Data Grid -->
+                        <div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-md">
+                            <div class="flex items-center justify-between">
+                                <span class="font-caption-caps text-caption-caps text-on-surface-variant">Statutory
+                                    Identifiers</span>
+                                <span class="font-caption-caps text-caption-caps text-error">Unverified Baseline</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-space-sm">
+                                <div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col">
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">Permanent
+                                        Account No (PAN)</span>
+                                    <div class="flex items-center justify-between mt-1">
+                                        <span
+                                            class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-caption-caps text-caption-caps font-semibold">Not
+                                            provided</span>
+                                        <span class="material-symbols-outlined text-sm text-error">error</span>
+                                    </div>
+                                    <span class="font-caption-caps text-caption-caps text-error mt-1">Tax withheld at
+                                        20% flat</span>
+                                </div>
+                                <div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col">
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">EPF
+                                        Universal Account (UAN)</span>
+                                    <div class="flex items-center justify-between mt-1">
+                                        <span
+                                            class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-caption-caps text-caption-caps font-semibold">Not
+                                            provided</span>
+                                        <span class="material-symbols-outlined text-sm text-outline">help</span>
+                                    </div>
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant mt-1">PF
+                                        exemption active</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="p-space-sm rounded-lg bg-error-container text-on-error-container flex items-start gap-space-xs">
+                            <span
+                                class="material-symbols-outlined text-base text-error flex-shrink-0 mt-0.5">info</span>
+                            <p class="font-body-sm text-body-sm">
+                                Payslip generation may proceed, but a statutory notice will accompany the candidate copy
+                                regarding Form 16 implications.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Alternate State 3: Initial Empty State Placeholder -->
+                    <div class="hidden p-space-xl rounded-xl bg-surface-container-lowest shadow-md flex-col items-center justify-center text-center gap-space-md py-16"
+                        id="dossierCardEmpty">
+                        <div
+                            class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+                            <span class="material-symbols-outlined text-3xl">domain_disabled</span>
+                        </div>
+                        <div class="flex flex-col gap-1 max-w-xs">
+                            <h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">No client
+                                selected</h3>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                Choose a client organization and candidate above to view profile details and proceed
+                                with the salary computation.
+                            </p>
+                        </div>
+                        <button
+                            class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold shadow-sm hover:bg-primary-container transition-colors"
+                            onclick="setScenario('complete')" type="button">
+                            Select Northstar Technologies
+                        </button>
+                    </div>
+                    <!-- Verification Badge Footnote -->
+                    <div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between">
+                        <div
+                            class="flex items-center gap-space-xs text-on-surface-variant font-caption-caps text-caption-caps">
+                            <span class="material-symbols-outlined text-base text-tertiary">lock</span>
+                            <span>Encrypted via AES-256 for Form 16 Compliance</span>
+                        </div>
+                        <a class="font-caption-caps text-caption-caps text-primary hover:underline" href="#">View Ledger
+                            Audit</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Action Bar (Inline Workflow Stepper Controls) -->
+            <div
+                class="w-full pt-space-md pb-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md">
+                <div>
+                    <button
+                        class="px-space-md py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-body-sm text-body-sm font-medium transition-colors flex items-center gap-1.5 shadow-sm"
+                        type="button">
+                        <span class="material-symbols-outlined text-sm">close</span>
+                        <span>Cancel Draft</span>
+                    </button>
+                </div>
+                <div class="flex items-center gap-space-md w-full sm:w-auto justify-end">
+                    <div class="hidden md:flex flex-col text-right">
+                        <span class="font-caption-caps text-caption-caps text-on-surface-variant">Next Action</span>
+                        <span class="font-body-sm text-body-sm font-semibold text-on-surface">Step 2: Salary &amp;
+                            Attendance</span>
+                    </div>
+                    <button
+                        class="w-full sm:w-auto px-space-xl py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-body-sm text-body-sm font-semibold transition-all shadow-md flex items-center justify-center gap-2"
+                        id="saveContinueBtn" type="button">
+                        <span>Save &amp; Continue to Salary</span>
+                        <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Client-side Interactive State Controller for Demo -->
+            <script>
+                (function initEmployeeStep() {
+                    const clientBtn = document.getElementById('clientDropdownBtn');
+                    const clientMenu = document.getElementById('clientDropdownMenu');
+                    const candBtn = document.getElementById('candidateDropdownBtn');
+                    const candMenu = document.getElementById('candidateDropdownMenu');
+
+                    const cardComplete = document.getElementById('dossierCardComplete');
+                    const cardMissing = document.getElementById('dossierCardMissing');
+                    const cardEmpty = document.getElementById('dossierCardEmpty');
+
+                    const btnComp = document.getElementById('viewCompleteBtn');
+                    const btnMiss = document.getElementById('viewMissingBtn');
+                    const btnEmp = document.getElementById('viewEmptyBtn');
+
+                    if (clientBtn && clientMenu) {
+                        clientBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            clientMenu.classList.toggle('hidden');
+                            clientMenu.classList.toggle('flex');
+                            if (candMenu) candMenu.classList.add('hidden');
+                        });
+                    }
+
+                    if (candBtn && candMenu) {
+                        candBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            candMenu.classList.toggle('hidden');
+                            candMenu.classList.toggle('flex');
+                            if (clientMenu) clientMenu.classList.add('hidden');
+                        });
+                    }
+
+                    document.addEventListener('click', () => {
+                        if (clientMenu) {
+                            clientMenu.classList.add('hidden');
+                            clientMenu.classList.remove('flex');
+                        }
+                        if (candMenu) {
+                            candMenu.classList.add('hidden');
+                            candMenu.classList.remove('flex');
+                        }
+                    });
+
+                    window.setScenario = function (mode) {
+                        // Reset toggles visual state
+                        [btnComp, btnMiss, btnEmp].forEach(b => {
+                            if (b) {
+                                b.className = 'px-space-sm py-1 rounded-md text-on-surface-variant hover:text-on-surface font-caption-caps text-caption-caps transition-all';
+                            }
+                        });
+
+                        // Hide cards
+                        if (cardComplete) cardComplete.classList.add('hidden');
+                        if (cardMissing) cardMissing.classList.add('hidden');
+                        if (cardEmpty) cardEmpty.classList.add('hidden');
+
+                        if (mode === 'complete') {
+                            if (btnComp) btnComp.className = 'px-space-sm py-1 rounded-md text-on-surface bg-surface-container-lowest shadow-sm font-caption-caps text-caption-caps transition-all';
+                            if (cardComplete) cardComplete.classList.remove('hidden');
+                            const banner = document.getElementById('missingWarningBanner');
+                            if (banner) banner.classList.add('hidden');
+                            updateDossierTexts('Aarav Sharma', 'EMP-1024', 'Software Engineer', '15 June 2025', '1 yr 4 mos', 'ABCDE1234F', '101234567890', true);
+                        } else if (mode === 'missing') {
+                            if (btnMiss) btnMiss.className = 'px-space-sm py-1 rounded-md text-on-surface bg-surface-container-lowest shadow-sm font-caption-caps text-caption-caps transition-all';
+                            if (cardMissing) cardMissing.classList.remove('hidden');
+                        } else if (mode === 'empty') {
+                            if (btnEmp) btnEmp.className = 'px-space-sm py-1 rounded-md text-on-surface bg-surface-container-lowest shadow-sm font-caption-caps text-caption-caps transition-all';
+                            if (cardEmpty) cardEmpty.classList.remove('hidden');
+                        }
+                    };
+
+                    window.selectCandidate = function (name, empId, role, doj, tenure, pan, uan, isComplete) {
+                        if (clientMenu) clientMenu.classList.add('hidden');
+                        if (candMenu) candMenu.classList.add('hidden');
+
+                        const nameEl = document.getElementById('selectedCandidateName');
+                        const idEl = document.getElementById('selectedCandidateId');
+                        const roleEl = document.getElementById('selectedCandidateRole');
+
+                        if (nameEl) nameEl.textContent = name;
+                        if (idEl) idEl.textContent = empId;
+                        if (roleEl) roleEl.textContent = 'Offer: ' + role + ' • Engineering Dept • Bangalore';
+
+                        if (!isComplete) {
+                            window.setScenario('missing');
+                        } else {
+                            window.setScenario('complete');
+                            updateDossierTexts(name, empId, role, doj, tenure, pan, uan, true);
+                        }
+                    };
+
+                    function updateDossierTexts(name, empId, role, doj, tenure, pan, uan, valid) {
+                        const cName = document.getElementById('cardCandidateName');
+                        const cRole = document.getElementById('cardCandidateRole');
+                        const cId = document.getElementById('cardEmpId');
+                        const cDoj = document.getElementById('cardDoj');
+                        const cTenure = document.getElementById('cardTenure');
+                        const cPan = document.getElementById('cardPan');
+                        const cUan = document.getElementById('cardUan');
+                        const avatar = document.getElementById('profileAvatar');
+
+                        if (cName) cName.textContent = name;
+                        if (cRole) cRole.textContent = role;
+                        if (cId) cId.textContent = empId;
+                        if (cDoj) cDoj.textContent = doj;
+                        if (cTenure) cTenure.textContent = tenure;
+                        if (cPan) cPan.textContent = pan;
+                        if (cUan) cUan.textContent = uan;
+                        if (avatar) {
+                            const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2);
+                            avatar.textContent = initials;
+                        }
+                    }
+                })();
+            </script>
+        </div>
+    </main>
+    <footer
+        class="w-full bg-surface-container-lowest border-t border-outline-variant shadow-[0_-2px_10px_rgba(0,0,0,0.03)]">
+        <div
+            class="max-w-6xl mx-auto px-margin py-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+            <div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span
+                    class="material-symbols-outlined text-sm">verified_user</span><span>Certified financial audit ledger
+                    format (Form 16 / Payment of Wages Act ready)</span></div>
+            <div class="flex items-center gap-space-md w-full sm:w-auto justify-end"><button
+                    class="px-space-md py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm transition-colors"
+                    type="button">Back</button><button
+                    class="px-space-lg py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-sm text-body-sm font-semibold transition-colors flex items-center gap-1.5"
+                    type="button"><span>Continue to Review</span><span
+                        class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+        </div>
+    </footer>
+</body>
+
+</html>

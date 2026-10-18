@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#1d4ed8", "inverse-surface": "#283044", "secondary": "#0051d5", "on-tertiary-fixed-variant": "#005049", "surface": "#faf8ff", "error-container": "#ffdad6", "on-primary": "#ffffff", "outline": "#747686", "surface-tint": "#2151da", "tertiary-fixed": "#89f5e7", "secondary-container": "#316bf3", "surface-dim": "#d2d9f4", "on-tertiary": "#ffffff", "tertiary": "#004e47", "on-secondary": "#ffffff", "surface-variant": "#dae2fd", "on-error-container": "#93000a", "primary-fixed": "#dce1ff", "on-primary-container": "#cad3ff", "on-primary-fixed-variant": "#0039b5", "on-surface": "#131b2e", "inverse-on-surface": "#eef0ff", "on-error": "#ffffff", "on-secondary-container": "#fefcff", "tertiary-fixed-dim": "#6bd8cb", "secondary-fixed": "#dbe1ff", "on-primary-fixed": "#001551", "error": "#ba1a1a", "on-tertiary-container": "#7be7d9", "surface-container-highest": "#dae2fd", "on-secondary-fixed": "#00174b", "primary": "#0037b0", "secondary-fixed-dim": "#b4c5ff", "primary-fixed-dim": "#b7c4ff", "surface-container": "#eaedff", "on-tertiary-fixed": "#00201d", "surface-container-low": "#f2f3ff", "surface-container-high": "#e2e7ff", "background": "#faf8ff", "outline-variant": "#c4c5d7", "tertiary-container": "#00685f", "surface-bright": "#faf8ff", "on-background": "#131b2e", "inverse-primary": "#b7c4ff", "on-surface-variant": "#434655", "on-secondary-fixed-variant": "#003ea8", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.25rem", "margin": "2rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-mobile": "1rem", "gutter": "1.25rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "headline-sm": ["Manrope"], "caption-caps": ["Manrope"], "body-md": ["Manrope"], "body-sm": ["Manrope"], "body-lg": ["Manrope"], "headline-lg": ["Manrope"], "label-numeric-md": ["JetBrains Mono"], "label-numeric-sm": ["JetBrains Mono"], "display-lg": ["Manrope"], "label-numeric-lg": ["JetBrains Mono"] }, "fontSize": { "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "caption-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-numeric-md": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-numeric-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-numeric-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script>
+</head>
+
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div class="h-16 w-full px-margin flex items-center justify-between">
+            <div class="flex items-center gap-space-md">
+                <div class="flex items-center gap-space-sm"><img alt="Payslip Studio Emblem"
+                        class="h-8 w-auto object-contain"
+                        src="https://lh3.googleusercontent.com/aida/AEtjO1X6MVUTQlm-8QkHyD6ASj13hUA6yerZLxRuUkZlLL0Zx58Rp83OmatoRcE-PSdUGZ9OsQZ7IBksgAwEW0C8IvaUPf6j5Nq7vgRysMNLqJtY6kLQQwELalnhT_l0YtlCKbpm4z8pfVjU6wwYZ_5h4LyKPJppkFget9JBBK3fA54tUJ56YdzxKwQCfEugju9qtBiLew1EK7KodwGV1VvO6nIwWnm2tEo21P6XU6lXdUK-RtVwQGo-igzV97o" /><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Payslip Studio</span>
+                </div><span
+                    class="px-space-sm py-0.5 rounded-lg bg-surface-container-low text-on-surface-variant font-caption-caps text-caption-caps border border-outline-variant">Frontend
+                    demo</span>
+                <div
+                    class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container text-on-surface font-caption-caps text-caption-caps">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span><span>Draft: EMP-1024 (Oct
+                        2026)</span></div>
+            </div>
+            <div class="flex items-center gap-space-md">
+                <div class="hidden md:flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                    <span class="material-symbols-outlined text-sm">cloud_done</span><span>Auto-saved 2m ago</span>
+                </div><a
+                    class="hidden sm:flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors"
+                    data-path="help-support" href="#"><span
+                        class="material-symbols-outlined text-base">help</span><span>Help</span></a><button
+                    class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"
+                    type="button"><span class="material-symbols-outlined">notifications</span><span
+                        class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button>
+                <div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><img
+                        alt="Profile" class="w-8 h-8 rounded-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2gk-wmc-Ygcuj7LX9PO4NP31Crxrk8B1LTxjrJ8fKXAMSmp112if83hE_qMf-d7nMUwnivjOK6fqBpA9x1MiuRz6M5WZ6E6S-4qw_HoV5CGAfc05z920qyJt57Ct7iZKzvyMWtvYmeAy1dLxGGBkVDW4BmJSyaQWmILF3jRyEoecZZTJYhkDPmVpyqvHkdNFUKyh_2uOSRuyfrEng2RAgE6t7Eglgcw5426_gnsFtGcJBgNgCVrg7DA" />
+                    <div class="hidden lg:flex flex-col text-left"><span
+                            class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Priya
+                            Nair</span><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant leading-tight">HR
+                            Ops</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="pt-16 bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+        <div class="max-w-6xl mx-auto px-margin py-space-lg">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+                <div>
+                    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs">Generate payslip</h1>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Prepare, review and confirm a candidate
+                        payslip.</p>
+                </div>
+                <nav class="hidden sm:flex items-center gap-space-md font-body-sm text-body-sm"
+                    data-active-classes="text-primary font-semibold"><a
+                        class="text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="generate-payslip-employee" href="#">Flow Overview</a><a
+                        class="text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="payroll-registry" href="#">Ledger Registry</a></nav>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-space-sm">
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high text-on-surface">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        <span class="material-symbols-outlined text-sm font-bold">check</span></div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 1</span><span
+                            class="font-body-sm text-body-sm font-semibold text-on-surface">Employee</span></div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high border-b-2 border-primary text-on-surface">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        2</div>
+                    <div class="flex flex-col"><span class="font-caption-caps text-caption-caps text-primary">Step 2
+                            (Active)</span><span class="font-body-sm text-body-sm font-semibold text-on-surface">Salary
+                            &amp; attendance</span></div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        3</div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 3</span><span
+                            class="font-body-sm text-body-sm font-normal text-on-surface-variant">Review payslip</span>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        4</div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 4</span><span
+                            class="font-body-sm text-body-sm font-normal text-on-surface-variant">Distribution</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="w-full max-w-6xl mx-auto px-margin py-space-lg bg-surface">
+        <div class="flex flex-col w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+                <!-- LEFT COLUMN: Form Configuration Console (Approx 65% width) -->
+                <div class="lg:col-span-8 flex flex-col gap-space-md min-w-0">
+                    <!-- Operational Notice & Audit Stamp -->
+                    <div
+                        class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+                        <div class="flex items-center gap-space-sm">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-base">tune</span>
+                            </div>
+                            <div>
+                                <div class="font-body-md text-body-md font-semibold text-on-surface">Compensation &amp;
+                                    Attendance Setup</div>
+                                <div class="font-caption-caps text-caption-caps text-on-surface-variant">LEDGER CYCLE:
+                                    IN-OCT-2026-REGULAR • EMPLOYEE: EMP-1024 (RAHUL VERMA)</div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-lowest text-primary font-label-numeric-sm text-label-numeric-sm shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+                            <span>CALC: DYNAMIC (31-DAY DIVISOR)</span>
+                        </div>
+                    </div>
+                    <!-- SECTION 1: Salary & Period Configuration -->
+                    <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+                        <div class="flex items-center justify-between pb-space-sm mb-space-md border-b-0">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="w-1.5 h-4 bg-primary rounded-full"></span>
+                                <h2 class="font-headline-sm text-headline-sm text-on-surface">1. Salary and Period</h2>
+                            </div>
+                            <span
+                                class="font-caption-caps text-caption-caps px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-semibold">FORM
+                                16 BASELINE</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                            <!-- Monthly CTC Input -->
+                            <div class="flex flex-col gap-1.5">
+                                <div class="flex items-center justify-between">
+                                    <label class="font-caption-caps text-caption-caps text-on-surface-variant font-bold"
+                                        for="monthly-ctc">Monthly HR CTC (Base Cost)</label>
+                                    <span
+                                        class="font-label-numeric-sm text-label-numeric-sm text-primary font-semibold">₹
+                                        INR</span>
+                                </div>
+                                <div class="relative flex items-center">
+                                    <div
+                                        class="absolute left-3 font-label-numeric-md text-label-numeric-md text-on-surface-variant pointer-events-none font-semibold">
+                                        ₹</div>
+                                    <input
+                                        class="w-full h-10 pl-8 pr-space-md bg-surface-container-lowest rounded text-on-surface font-label-numeric-md text-label-numeric-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+                                        id="monthly-ctc" placeholder="e.g. 60,000" type="text" value="60,000" />
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Cost to Company as per
+                                    certified employment contract schedule.</p>
+                            </div>
+                            <!-- Payslip Month / Year Picker -->
+                            <div class="flex flex-col gap-1.5">
+                                <label class="font-caption-caps text-caption-caps text-on-surface-variant font-bold"
+                                    for="payroll-cycle">Payslip Month / Year</label>
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="w-full h-10 px-space-md bg-surface-container-low rounded text-on-surface font-body-md text-body-md font-semibold cursor-pointer shadow-sm"
+                                        id="payroll-cycle" readonly="" type="text" value="October 2026" />
+                                    <span
+                                        class="material-symbols-outlined absolute right-3 text-on-surface-variant pointer-events-none">calendar_month</span>
+                                </div>
+                                <!-- Calendar Days Read-only Pill -->
+                                <div class="flex items-center gap-space-xs mt-0.5">
+                                    <span
+                                        class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-primary font-caption-caps text-caption-caps">
+                                        <span class="material-symbols-outlined text-xs">date_range</span>
+                                        <span>31 calendar days in October 2026</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SECTION 2: Attendance & Proration Schedule -->
+                    <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+                        <div class="flex items-center justify-between pb-space-sm mb-space-md">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="w-1.5 h-4 bg-primary rounded-full"></span>
+                                <h2 class="font-headline-sm text-headline-sm text-on-surface">2. Attendance &amp;
+                                    Proration Schedule</h2>
+                            </div>
+                            <span
+                                class="font-caption-caps text-caption-caps px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">LEAP
+                                CYCLE STANDARD</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md items-start">
+                            <!-- Working Days -->
+                            <div class="flex flex-col gap-1.5">
+                                <label class="font-caption-caps text-caption-caps text-on-surface-variant font-bold"
+                                    for="input-working-days">Working Days</label>
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="w-full h-10 px-space-md bg-surface-container-lowest rounded text-on-surface font-label-numeric-md text-label-numeric-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+                                        id="input-working-days" max="31" min="1" type="number" value="22" />
+                                    <span
+                                        class="absolute right-3 font-caption-caps text-caption-caps text-on-surface-variant">DAYS</span>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Standard working days in
+                                    cycle.</p>
+                            </div>
+                            <!-- Leave Days -->
+                            <div class="flex flex-col gap-1.5">
+                                <div class="flex items-center justify-between">
+                                    <label class="font-caption-caps text-caption-caps text-on-surface-variant font-bold"
+                                        for="input-leave-days">Leave Days (LOP)</label>
+                                    <span class="font-caption-caps text-caption-caps text-error font-bold">UNPAID</span>
+                                </div>
+                                <div class="relative flex items-center">
+                                    <input
+                                        class="w-full h-10 px-space-md bg-surface-container-lowest rounded text-on-surface font-label-numeric-md text-label-numeric-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+                                        id="input-leave-days" max="31" min="0" type="number" value="2" />
+                                    <span
+                                        class="absolute right-3 font-caption-caps text-caption-caps text-on-surface-variant">DAYS</span>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Approved unpaid or
+                                    loss-of-pay leaves.</p>
+                            </div>
+                            <!-- Paid Days Summary Pill Card -->
+                            <div class="flex flex-col gap-1.5 p-space-sm bg-surface-container-low rounded-lg shadow-sm">
+                                <span
+                                    class="font-caption-caps text-caption-caps text-on-surface-variant font-bold">Derived
+                                    Paid Days</span>
+                                <div class="flex items-baseline justify-between mt-1">
+                                    <span class="font-label-numeric-lg text-label-numeric-lg text-primary font-bold">20
+                                        <span
+                                            class="font-label-numeric-sm text-label-numeric-sm text-on-surface-variant font-normal">/
+                                            31 days</span></span>
+                                    <span
+                                        class="font-caption-caps text-caption-caps px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">64.5%
+                                        MO</span>
+                                </div>
+                                <!-- Progress Pill -->
+                                <div
+                                    class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden my-1">
+                                    <div class="bg-primary-container h-1.5 rounded-full" style="width: 64.51%"></div>
+                                </div>
+                                <p class="font-caption-caps text-caption-caps text-on-surface-variant">Formula: 22
+                                    working - 2 LOP = 20 payable shifts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SECTION 3: Payroll Statutory & Custom Deductions Settings -->
+                    <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+                        <div class="flex items-center justify-between pb-space-sm mb-space-md">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="w-1.5 h-4 bg-primary rounded-full"></span>
+                                <h2 class="font-headline-sm text-headline-sm text-on-surface">3. Payroll Settings &amp;
+                                    Statutories</h2>
+                            </div>
+                            <span class="font-caption-caps text-caption-caps text-on-surface-variant">STATUTORY ACT
+                                COMPLIANT</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                            <!-- PF Applicable Switch -->
+                            <div
+                                class="flex items-center justify-between p-space-md bg-surface-container-low rounded-lg">
+                                <div class="flex flex-col">
+                                    <div class="flex items-center gap-space-xs">
+                                        <span class="font-body-md text-body-md font-semibold text-on-surface">PF
+                                            Applicable (EPF Act)</span>
+                                        <span
+                                            class="font-caption-caps text-caption-caps px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed font-bold">12%
+                                            RULE</span>
+                                    </div>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant">Statutory Employees'
+                                        Provident Fund</span>
+                                </div>
+                                <!-- Interactive Switch Toggle -->
+                                <button aria-checked="true"
+                                    class="w-12 h-6 bg-primary-container rounded-full p-0.5 transition-colors relative flex items-center"
+                                    role="switch" type="button">
+                                    <span
+                                        class="w-5 h-5 bg-surface-container-lowest rounded-full shadow-md transform translate-x-6 transition-transform"></span>
+                                </button>
+                            </div>
+                            <!-- Professional Tax (PT) -->
+                            <div class="flex flex-col gap-1.5">
+                                <div class="flex items-center justify-between">
+                                    <label class="font-caption-caps text-caption-caps text-on-surface-variant font-bold"
+                                        for="input-pt">Professional Tax (PT)</label>
+                                    <span class="font-caption-caps text-caption-caps text-primary font-semibold">STATE
+                                        MANDATE</span>
+                                </div>
+                                <div class="relative flex items-center">
+                                    <div
+                                        class="absolute left-3 font-label-numeric-md text-label-numeric-md text-on-surface-variant font-semibold">
+                                        ₹</div>
+                                    <input
+                                        class="w-full h-10 pl-8 pr-space-md bg-surface-container-lowest rounded text-on-surface font-label-numeric-md text-label-numeric-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+                                        id="input-pt" type="number" value="200" />
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Standard state statutory
+                                    slab deduction.</p>
+                            </div>
+                            <!-- Insurance Fund (IF) Read Only -->
+                            <div class="flex flex-col gap-1.5">
+                                <div class="flex items-center justify-between">
+                                    <label class="font-caption-caps text-caption-caps text-on-surface-variant font-bold"
+                                        for="input-if">Insurance Fund (IF)</label>
+                                    <span
+                                        class="flex items-center gap-0.5 font-caption-caps text-caption-caps text-on-surface-variant">
+                                        <span class="material-symbols-outlined text-xs">lock</span>
+                                        <span>LOCKED</span>
+                                    </span>
+                                </div>
+                                <div class="relative flex items-center">
+                                    <div
+                                        class="absolute left-3 font-label-numeric-md text-label-numeric-md text-on-surface-variant font-semibold">
+                                        ₹</div>
+                                    <input
+                                        class="w-full h-10 pl-8 pr-10 bg-surface-container-high rounded text-on-surface font-label-numeric-md text-label-numeric-md shadow-sm cursor-not-allowed"
+                                        id="input-if" readonly="" type="text" value="700" />
+                                    <span
+                                        class="material-symbols-outlined absolute right-3 text-on-surface-variant text-base">lock</span>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Mandatory corporate group
+                                    medical policy.</p>
+                            </div>
+                            <!-- TDS Deduction -->
+                            <div class="flex flex-col gap-1.5">
+                                <div class="flex items-center justify-between">
+                                    <label class="font-caption-caps text-caption-caps text-on-surface-variant font-bold"
+                                        for="input-tds">TDS (Tax Deducted at Source)</label>
+                                    <span class="font-caption-caps text-caption-caps text-on-surface-variant">SEC
+                                        192</span>
+                                </div>
+                                <div class="relative flex items-center">
+                                    <div
+                                        class="absolute left-3 font-label-numeric-md text-label-numeric-md text-on-surface-variant font-semibold">
+                                        ₹</div>
+                                    <input
+                                        class="w-full h-10 pl-8 pr-space-md bg-surface-container-lowest rounded text-on-surface font-label-numeric-md text-label-numeric-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+                                        id="input-tds" type="number" value="1500" />
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Assessed income tax
+                                    retention for October.</p>
+                            </div>
+                            <!-- Salary Advance Deduction -->
+                            <div class="flex flex-col gap-1.5 md:col-span-2">
+                                <div class="flex items-center justify-between">
+                                    <label class="font-caption-caps text-caption-caps text-on-surface-variant font-bold"
+                                        for="input-advance">Advance Deduction / Recovery</label>
+                                    <span
+                                        class="font-caption-caps text-caption-caps px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">LEDGER
+                                        REF: ADV-4091</span>
+                                </div>
+                                <div class="relative flex items-center">
+                                    <div
+                                        class="absolute left-3 font-label-numeric-md text-label-numeric-md text-on-surface-variant font-semibold">
+                                        ₹</div>
+                                    <input
+                                        class="w-full h-10 pl-8 pr-space-md bg-surface-container-lowest rounded text-on-surface font-label-numeric-md text-label-numeric-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container"
+                                        id="input-advance" type="number" value="2000" />
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Salary advance adjustment
+                                    repayment tranche 2 of 3.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- INLINE VALIDATION & EDGE CASES SIMULATION BENCH -->
+                    <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer list-none">
+                                <div class="flex items-center gap-space-sm">
+                                    <span class="material-symbols-outlined text-secondary-container">rule</span>
+                                    <div class="flex flex-col">
+                                        <span class="font-body-md text-body-md font-semibold text-on-surface">Audit
+                                            Engine: Edge Case Testing &amp; Inline Validation</span>
+                                        <span
+                                            class="font-caption-caps text-caption-caps text-on-surface-variant">SIMULATE
+                                            REAL-TIME COMPLIANCE RESTRICTIONS</span>
+                                    </div>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-on-surface-variant transform group-open:rotate-180 transition-transform">expand_more</span>
+                            </summary>
+                            <div
+                                class="mt-space-md pt-space-md grid grid-cols-1 sm:grid-cols-2 gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
+                                <!-- Edge Case 1: Leaves Exceeding Working Days -->
+                                <div
+                                    class="p-space-sm rounded bg-surface-container-lowest shadow-sm flex flex-col gap-1">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-caption-caps text-caption-caps text-error font-bold">RULE #01
+                                            EXCEPTION</span>
+                                        <span
+                                            class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-caption-caps text-caption-caps">CRITICAL</span>
+                                    </div>
+                                    <span class="font-body-sm text-body-sm font-semibold text-on-surface">Leave Days
+                                        &gt; Working Days</span>
+                                    <p class="font-caption-caps text-caption-caps text-error">Simulated Error: "Leave
+                                        days (24) cannot exceed total working days (22)". Form lock activated.</p>
+                                </div>
+                                <!-- Edge Case 2: Negative TDS -->
+                                <div
+                                    class="p-space-sm rounded bg-surface-container-lowest shadow-sm flex flex-col gap-1">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-caption-caps text-caption-caps text-error font-bold">RULE #02
+                                            EXCEPTION</span>
+                                        <span
+                                            class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-caption-caps text-caption-caps">NEGATIVE
+                                            VALUE</span>
+                                    </div>
+                                    <span class="font-body-sm text-body-sm font-semibold text-on-surface">Negative TDS
+                                        Amount</span>
+                                    <p class="font-caption-caps text-caption-caps text-error">Simulated Error: "TDS
+                                        amount cannot be less than ₹0.00. Refund must follow IT schedule".</p>
+                                </div>
+                                <!-- Edge Case 3: PT + IF Exceeds CTC -->
+                                <div
+                                    class="p-space-sm rounded bg-surface-container-lowest shadow-sm flex flex-col gap-1">
+                                    <div class="flex items-center justify-between">
+                                        <span
+                                            class="font-caption-caps text-caption-caps text-on-surface-variant font-bold">RULE
+                                            #03 EXCEPTION</span>
+                                        <span
+                                            class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-caption-caps text-caption-caps">OVERFLOW</span>
+                                    </div>
+                                    <span class="font-body-sm text-body-sm font-semibold text-on-surface">Deductions
+                                        Exceed Proration</span>
+                                    <p class="font-caption-caps text-caption-caps text-on-surface-variant">Statutory
+                                        checks ensure PT (₹200) + IF (₹700) cannot exceed earned gross allowance.</p>
+                                </div>
+                                <!-- Edge Case 4: Zero Paid Days -->
+                                <div
+                                    class="p-space-sm rounded bg-surface-container-lowest shadow-sm flex flex-col gap-1">
+                                    <div class="flex items-center justify-between">
+                                        <span
+                                            class="font-caption-caps text-caption-caps text-on-surface-variant font-bold">RULE
+                                            #04 WARNING</span>
+                                        <span
+                                            class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-caption-caps text-caption-caps">ZERO
+                                            EARNING</span>
+                                    </div>
+                                    <span class="font-body-sm text-body-sm font-semibold text-on-surface">Zero Paid Days
+                                        Warning</span>
+                                    <p class="font-caption-caps text-caption-caps text-on-surface-variant">Zero paid
+                                        days with net pay negative warning flags ledger review before Step 3.</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <!-- RIGHT COLUMN: Compact Live Summary Panel (Approx 35% width, Sticky) -->
+                <div class="lg:col-span-4 sticky top-20 flex flex-col gap-space-md">
+                    <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md">
+                        <!-- Summary Header -->
+                        <div class="flex items-center justify-between pb-space-sm mb-space-sm">
+                            <div class="flex flex-col">
+                                <span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Live
+                                    Ledger Calculation</span>
+                                <span class="font-caption-caps text-caption-caps text-primary font-bold">REAL-TIME
+                                    PREVIEW • OCT 2026</span>
+                            </div>
+                            <span class="material-symbols-outlined text-secondary-container">calculate</span>
+                        </div>
+                        <!-- Big Highlighted Net Pay Card -->
+                        <div
+                            class="p-space-md rounded-xl bg-primary-container text-on-primary shadow-sm mb-space-md flex flex-col items-center text-center">
+                            <span
+                                class="font-caption-caps text-caption-caps text-on-primary-container uppercase font-bold tracking-wider">Estimated
+                                Net Payable</span>
+                            <div
+                                class="font-display-lg text-display-lg font-bold my-1 flex items-baseline justify-center gap-1 font-label-numeric-lg text-white">
+                                <span class="text-xl">₹</span><span>30,758.07</span>
+                            </div>
+                            <span
+                                class="font-caption-caps text-caption-caps px-2 py-0.5 rounded-full bg-surface-container-lowest/20 text-on-primary">
+                                DISBURSED TO HDFC ****9821
+                            </span>
+                        </div>
+                        <!-- Detailed Ledger Breakdown (Compact High Density) -->
+                        <div class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+                            <div class="flex items-center justify-between py-1.5 px-2 rounded bg-surface-container-low">
+                                <span class="text-on-surface-variant font-medium">Monthly Full CTC:</span>
+                                <span
+                                    class="font-label-numeric-md text-label-numeric-md font-semibold text-on-surface">₹
+                                    60,000.00</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1.5 px-2 rounded">
+                                <span class="text-on-surface-variant font-medium">Effective Paid Cycle:</span>
+                                <span class="font-label-numeric-md text-label-numeric-md font-semibold text-primary">20
+                                    / 31 Days</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1.5 px-2 rounded bg-surface-container-low">
+                                <span class="text-on-surface-variant font-medium">Prorated Gross Earnings:</span>
+                                <span class="font-label-numeric-md text-label-numeric-md font-bold text-on-surface">₹
+                                    38,129.03</span>
+                            </div>
+                            <!-- Divider -->
+                            <div class="h-px bg-surface-container-highest my-1"></div>
+                            <div class="flex items-center justify-between py-1 px-2">
+                                <span class="text-on-surface-variant flex items-center gap-1">
+                                    <span>Employee PF (12% Basic)</span>
+                                    <span class="material-symbols-outlined text-xs text-on-surface-variant">info</span>
+                                </span>
+                                <span class="font-label-numeric-md text-label-numeric-md text-on-surface">₹
+                                    1,935.48</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 px-2">
+                                <span class="text-on-surface-variant flex items-center gap-1">
+                                    <span>Employer PF Match (12%)</span>
+                                    <span
+                                        class="material-symbols-outlined text-xs text-on-surface-variant">check_circle</span>
+                                </span>
+                                <span class="font-label-numeric-md text-label-numeric-md text-on-surface">₹
+                                    1,935.48</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 px-2">
+                                <span class="text-on-surface-variant">Professional Tax (PT)</span>
+                                <span class="font-label-numeric-md text-label-numeric-md text-on-surface">₹
+                                    200.00</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 px-2">
+                                <span class="text-on-surface-variant">Insurance Fund (IF)</span>
+                                <span class="font-label-numeric-md text-label-numeric-md text-on-surface">₹
+                                    700.00</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 px-2">
+                                <span class="text-on-surface-variant">TDS Withheld (Income Tax)</span>
+                                <span class="font-label-numeric-md text-label-numeric-md text-on-surface">₹
+                                    1,500.00</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 px-2">
+                                <span class="text-on-surface-variant">Advance Repayment Tranche</span>
+                                <span class="font-label-numeric-md text-label-numeric-md text-on-surface">₹
+                                    2,000.00</span>
+                            </div>
+                            <!-- Deduction Total Row -->
+                            <div
+                                class="flex items-center justify-between py-2 px-2.5 rounded bg-error-container/40 mt-1">
+                                <span
+                                    class="font-caption-caps text-caption-caps text-on-error-container font-bold">Total
+                                    Deductions</span>
+                                <span
+                                    class="font-label-numeric-md text-label-numeric-md font-bold text-on-error-container">₹
+                                    6,335.48</span>
+                            </div>
+                        </div>
+                        <!-- Compliance & Certification Stamp -->
+                        <div
+                            class="mt-space-md p-space-sm bg-surface-container-low rounded-lg flex items-start gap-space-xs">
+                            <span class="material-symbols-outlined text-sm text-primary mt-0.5">verified</span>
+                            <div class="flex flex-col">
+                                <span class="font-caption-caps text-caption-caps text-on-surface font-bold">Statutory
+                                    Hash Verified</span>
+                                <span
+                                    class="font-caption-caps text-caption-caps text-on-surface-variant leading-tight">SHA-256
+                                    ledger: 7f8a9...b401 matches Form 16 Annexure A calculations.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quick Action Summary Helper -->
+                    <div
+                        class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between text-on-surface">
+                        <div class="flex items-center gap-space-xs">
+                            <span class="material-symbols-outlined text-sm text-primary">history</span>
+                            <span class="font-body-sm text-body-sm font-semibold">Prior Month Net:</span>
+                        </div>
+                        <span class="font-label-numeric-md text-label-numeric-md">₹ 31,450.00</span>
+                    </div>
+                </div>
+            </div>
+            <!-- NAVIGATION ACTION DECK (Within Form Boundary) -->
+            <div
+                class="mt-space-xl pt-space-md bg-surface flex flex-col sm:flex-row items-center justify-between gap-space-md">
+                <a class="w-full sm:w-auto px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container-low font-body-sm text-body-sm font-semibold flex items-center justify-center gap-2 transition-all"
+                    data-path="generate-payslip-employee" href="#">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                    <span>Back to Employee Details</span>
+                </a>
+                <div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+                    <span
+                        class="hidden sm:inline-flex items-center gap-1 font-caption-caps text-caption-caps text-on-surface-variant">
+                        <span class="material-symbols-outlined text-xs text-primary">check_circle</span>
+                        <span>0 Validation Errors</span>
+                    </span>
+                    <a class="w-full sm:w-auto px-space-xl py-2.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-body-sm text-body-sm font-semibold shadow-md flex items-center justify-center gap-2 transition-all"
+                        data-path="generate-payslip-review" href="#">
+                        <span>Proceed to Review (Step 3)</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Micro-interaction Client Script for Dynamic Sync -->
+            <script>
+                (function initSalaryAttendanceSync() {
+                    const workingDaysInput = document.getElementById('input-working-days');
+                    const leaveDaysInput = document.getElementById('input-leave-days');
+
+                    function validateSync() {
+                        const working = parseFloat(workingDaysInput?.value) || 0;
+                        const leaves = parseFloat(leaveDaysInput?.value) || 0;
+
+                        if (leaves > working && leaveDaysInput) {
+                            leaveDaysInput.classList.add('bg-error-container', 'text-on-error-container');
+                        } else if (leaveDaysInput) {
+                            leaveDaysInput.classList.remove('bg-error-container', 'text-on-error-container');
+                        }
+                    }
+
+                    workingDaysInput?.addEventListener('input', validateSync);
+                    leaveDaysInput?.addEventListener('input', validateSync);
+                })();
+            </script>
+        </div>
+    </main>
+    <footer
+        class="w-full bg-surface-container-lowest border-t border-outline-variant shadow-[0_-2px_10px_rgba(0,0,0,0.03)]">
+        <div
+            class="max-w-6xl mx-auto px-margin py-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+            <div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span
+                    class="material-symbols-outlined text-sm">verified_user</span><span>Certified financial audit ledger
+                    format (Form 16 / Payment of Wages Act ready)</span></div>
+            <div class="flex items-center gap-space-md w-full sm:w-auto justify-end"><button
+                    class="px-space-md py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm transition-colors"
+                    type="button">Back</button><button
+                    class="px-space-lg py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-sm text-body-sm font-semibold transition-colors flex items-center gap-1.5"
+                    type="button"><span>Continue to Review</span><span
+                        class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+        </div>
+    </footer>
+</body>
+
+</html>

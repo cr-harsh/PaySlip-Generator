@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#1d4ed8", "inverse-surface": "#283044", "secondary": "#0051d5", "on-tertiary-fixed-variant": "#005049", "surface": "#faf8ff", "error-container": "#ffdad6", "on-primary": "#ffffff", "outline": "#747686", "surface-tint": "#2151da", "tertiary-fixed": "#89f5e7", "secondary-container": "#316bf3", "surface-dim": "#d2d9f4", "on-tertiary": "#ffffff", "tertiary": "#004e47", "on-secondary": "#ffffff", "surface-variant": "#dae2fd", "on-error-container": "#93000a", "primary-fixed": "#dce1ff", "on-primary-container": "#cad3ff", "on-primary-fixed-variant": "#0039b5", "on-surface": "#131b2e", "inverse-on-surface": "#eef0ff", "on-error": "#ffffff", "on-secondary-container": "#fefcff", "tertiary-fixed-dim": "#6bd8cb", "secondary-fixed": "#dbe1ff", "on-primary-fixed": "#001551", "error": "#ba1a1a", "on-tertiary-container": "#7be7d9", "surface-container-highest": "#dae2fd", "on-secondary-fixed": "#00174b", "primary": "#0037b0", "secondary-fixed-dim": "#b4c5ff", "primary-fixed-dim": "#b7c4ff", "surface-container": "#eaedff", "on-tertiary-fixed": "#00201d", "surface-container-low": "#f2f3ff", "surface-container-high": "#e2e7ff", "background": "#faf8ff", "outline-variant": "#c4c5d7", "tertiary-container": "#00685f", "surface-bright": "#faf8ff", "on-background": "#131b2e", "inverse-primary": "#b7c4ff", "on-surface-variant": "#434655", "on-secondary-fixed-variant": "#003ea8", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.25rem", "margin": "2rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-mobile": "1rem", "gutter": "1.25rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "headline-sm": ["Manrope"], "caption-caps": ["Manrope"], "body-md": ["Manrope"], "body-sm": ["Manrope"], "body-lg": ["Manrope"], "headline-lg": ["Manrope"], "label-numeric-md": ["JetBrains Mono"], "label-numeric-sm": ["JetBrains Mono"], "display-lg": ["Manrope"], "label-numeric-lg": ["JetBrains Mono"] }, "fontSize": { "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "caption-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-numeric-md": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-numeric-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-numeric-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script>
+</head>
+
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div class="h-16 w-full px-margin flex items-center justify-between">
+            <div class="flex items-center gap-space-md">
+                <div class="flex items-center gap-space-sm"><img alt="Payslip Studio Emblem"
+                        class="h-8 w-auto object-contain"
+                        src="https://lh3.googleusercontent.com/aida/AEtjO1X6MVUTQlm-8QkHyD6ASj13hUA6yerZLxRuUkZlLL0Zx58Rp83OmatoRcE-PSdUGZ9OsQZ7IBksgAwEW0C8IvaUPf6j5Nq7vgRysMNLqJtY6kLQQwELalnhT_l0YtlCKbpm4z8pfVjU6wwYZ_5h4LyKPJppkFget9JBBK3fA54tUJ56YdzxKwQCfEugju9qtBiLew1EK7KodwGV1VvO6nIwWnm2tEo21P6XU6lXdUK-RtVwQGo-igzV97o" /><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Payslip Studio</span>
+                </div><span
+                    class="px-space-sm py-0.5 rounded-lg bg-surface-container-low text-on-surface-variant font-caption-caps text-caption-caps border border-outline-variant">Frontend
+                    demo</span>
+                <div
+                    class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container text-on-surface font-caption-caps text-caption-caps">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span><span>Draft: EMP-1024 (Oct
+                        2026)</span></div>
+            </div>
+            <div class="flex items-center gap-space-md">
+                <div class="hidden md:flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                    <span class="material-symbols-outlined text-sm">cloud_done</span><span>Auto-saved 2m ago</span>
+                </div><a
+                    class="hidden sm:flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors"
+                    data-path="help-support" href="#"><span
+                        class="material-symbols-outlined text-base">help</span><span>Help</span></a><button
+                    class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"
+                    type="button"><span class="material-symbols-outlined">notifications</span><span
+                        class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button>
+                <div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><img
+                        alt="Profile" class="w-8 h-8 rounded-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2gk-wmc-Ygcuj7LX9PO4NP31Crxrk8B1LTxjrJ8fKXAMSmp112if83hE_qMf-d7nMUwnivjOK6fqBpA9x1MiuRz6M5WZ6E6S-4qw_HoV5CGAfc05z920qyJt57Ct7iZKzvyMWtvYmeAy1dLxGGBkVDW4BmJSyaQWmILF3jRyEoecZZTJYhkDPmVpyqvHkdNFUKyh_2uOSRuyfrEng2RAgE6t7Eglgcw5426_gnsFtGcJBgNgCVrg7DA" />
+                    <div class="hidden lg:flex flex-col text-left"><span
+                            class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Priya
+                            Nair</span><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant leading-tight">HR
+                            Ops</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="pt-16 bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+        <div class="max-w-6xl mx-auto px-margin py-space-lg">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+                <div>
+                    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs">Generate payslip</h1>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Prepare, review and confirm a candidate
+                        payslip.</p>
+                </div>
+                <nav class="hidden sm:flex items-center gap-space-md font-body-sm text-body-sm"
+                    data-active-classes="text-primary font-semibold"><a
+                        class="text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="generate-payslip-employee" href="#">Flow Overview</a><a
+                        class="text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="payroll-registry" href="#">Ledger Registry</a></nav>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-space-sm">
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high text-on-surface">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        <span class="material-symbols-outlined text-sm font-bold">check</span></div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 1</span><span
+                            class="font-body-sm text-body-sm font-semibold text-on-surface">Employee</span></div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high border-b-2 border-primary text-on-surface">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        2</div>
+                    <div class="flex flex-col"><span class="font-caption-caps text-caption-caps text-primary">Step 2
+                            (Active)</span><span class="font-body-sm text-body-sm font-semibold text-on-surface">Salary
+                            &amp; attendance</span></div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        3</div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 3</span><span
+                            class="font-body-sm text-body-sm font-normal text-on-surface-variant">Review payslip</span>
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+                    <div
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant font-label-numeric-sm text-label-numeric-sm font-semibold">
+                        4</div>
+                    <div class="flex flex-col"><span
+                            class="font-caption-caps text-caption-caps text-on-surface-variant">Step 4</span><span
+                            class="font-body-sm text-body-sm font-normal text-on-surface-variant">Distribution</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="w-full max-w-6xl mx-auto px-margin py-space-lg bg-surface">
+        <div class="flex flex-col w-full">
+            <!-- Interactive View Switcher & Demo Control Ribbon -->
+            <div
+                class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl shadow-sm mb-space-lg">
+                <div class="flex items-center gap-space-sm">
+                    <span
+                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary-container text-on-primary">
+                        <span class="material-symbols-outlined text-base">alt_route</span>
+                    </span>
+                    <div>
+                        <p class="font-caption-caps text-caption-caps text-outline uppercase tracking-wider">Interactive
+                            Flow Testing</p>
+                        <p class="font-headline-sm text-headline-sm text-on-surface">Step 4 Distribution Preview</p>
+                    </div>
+                </div>
+                <!-- State Toggle Tabs -->
+                <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-surface-container shadow-inner">
+                    <button
+                        class="px-space-md py-1.5 rounded-lg text-primary font-headline-sm text-body-sm font-semibold bg-surface-container-lowest shadow-sm transition-all flex items-center gap-1.5"
+                        id="tab-state-review" onclick="switchState('review')" type="button">
+                        <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                        <span>1. Active Review</span>
+                    </button>
+                    <button
+                        class="px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-headline-sm text-body-sm font-medium transition-all flex items-center gap-1.5"
+                        id="tab-state-modal" onclick="openConfirmationModal()" type="button">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                        <span>2. Confirm Modal</span>
+                    </button>
+                    <button
+                        class="px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-headline-sm text-body-sm font-medium transition-all flex items-center gap-1.5"
+                        id="tab-state-success" onclick="switchState('success')" type="button">
+                        <span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                        <span>3. Success State</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Stepper Override Synchronization indicator (Context visual for Step 4 Active) -->
+            <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm mb-space-lg">
+                <div
+                    class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm mb-space-sm">
+                    <div
+                        class="flex items-center gap-space-xs font-caption-caps text-caption-caps text-outline uppercase">
+                        <span class="material-symbols-outlined text-sm text-primary">account_tree</span>
+                        <span>Workflow Progression · Batch EMP-1024</span>
+                    </div>
+                    <span
+                        class="px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-caption-caps text-caption-caps font-semibold">Stage
+                        4 of 4 · Final Step</span>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-space-sm">
+                    <div
+                        class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface">
+                        <div
+                            class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                            <span class="material-symbols-outlined text-sm font-bold">check</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-caption-caps text-caption-caps text-outline">Step 1</span>
+                            <span class="font-body-sm text-body-sm font-semibold text-on-surface">Employee
+                                Profile</span>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface">
+                        <div
+                            class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                            <span class="material-symbols-outlined text-sm font-bold">check</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-caption-caps text-caption-caps text-outline">Step 2</span>
+                            <span class="font-body-sm text-body-sm font-semibold text-on-surface">Salary &amp;
+                                Attendance</span>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface">
+                        <div
+                            class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-semibold">
+                            <span class="material-symbols-outlined text-sm font-bold">check</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-caption-caps text-caption-caps text-outline">Step 3</span>
+                            <span class="font-body-sm text-body-sm font-semibold text-on-surface">Payslip Audit</span>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high text-on-surface shadow-sm relative overflow-hidden">
+                        <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"></div>
+                        <div
+                            class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-numeric-sm text-label-numeric-sm font-bold">
+                            4</div>
+                        <div class="flex flex-col">
+                            <span class="font-caption-caps text-caption-caps text-primary font-bold">Step 4
+                                (Active)</span>
+                            <span class="font-body-sm text-body-sm font-bold text-on-surface">Distribution &amp;
+                                Staging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Primary Asymmetric Workspace Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-space-xl">
+                <!-- LEFT 7 COLUMNS: Dynamic State Views (State 1: Review or State 3: Success) -->
+                <div class="lg:col-span-7 flex flex-col gap-space-lg">
+                    <!-- STATE 1: ACTIVE REVIEW VIEW -->
+                    <div class="flex flex-col gap-space-lg" id="view-review">
+                        <div
+                            class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md relative overflow-hidden">
+                            <!-- Subtle Accent Pattern Gradient -->
+                            <div
+                                class="absolute -top-16 -right-16 w-48 h-48 bg-primary/5 rounded-full blur-2xl pointer-events-none">
+                            </div>
+                            <!-- Section Header -->
+                            <div
+                                class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md">
+                                <div>
+                                    <span
+                                        class="font-caption-caps text-caption-caps text-primary uppercase font-bold tracking-wider">Final
+                                        Dispatch Stage</span>
+                                    <h2 class="font-headline-lg text-headline-lg text-on-surface mt-0.5">Final Dispatch
+                                        &amp; Distribution Review</h2>
+                                </div>
+                                <div>
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high text-primary font-caption-caps text-caption-caps font-semibold">
+                                        <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                                        Ready to prepare
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Recipient Ledger Card -->
+                            <div class="bg-surface-container-low p-space-md rounded-xl mt-space-sm shadow-sm">
+                                <div class="flex items-start justify-between gap-space-md pb-space-sm mb-space-sm">
+                                    <div class="flex items-center gap-space-md">
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-primary-fixed text-primary font-headline-sm text-headline-sm font-bold flex items-center justify-center">
+                                            AS
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center gap-space-xs">
+                                                <span
+                                                    class="font-headline-sm text-headline-sm text-on-surface font-semibold">Aarav
+                                                    Sharma</span>
+                                                <span
+                                                    class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-caption-caps text-caption-caps">EMP-1024</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+                                                <span class="material-symbols-outlined text-sm">mail</span>
+                                                <span>aarav.sharma@northstartech.io</span>
+                                                <span
+                                                    class="inline-flex items-center gap-0.5 px-1 rounded bg-tertiary-fixed text-on-tertiary-fixed font-caption-caps text-caption-caps font-bold ml-1">
+                                                    <span class="material-symbols-outlined text-[11px]">verified</span>
+                                                    Verified
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hidden sm:flex flex-col text-right">
+                                        <span
+                                            class="font-caption-caps text-caption-caps text-outline uppercase">Designation</span>
+                                        <span class="font-body-sm text-body-sm font-semibold text-on-surface">Lead Staff
+                                            Engineer</span>
+                                    </div>
+                                </div>
+                                <!-- Operational Parameters Matrix -->
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm pt-space-xs">
+                                    <div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+                                        <span class="font-caption-caps text-caption-caps text-outline block">Pay
+                                            Period</span>
+                                        <span class="font-body-md text-body-md font-semibold text-on-surface">October
+                                            2026</span>
+                                        <span
+                                            class="font-label-numeric-sm text-label-numeric-sm text-on-surface-variant block mt-0.5">Cycle:
+                                            M-End</span>
+                                    </div>
+                                    <div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+                                        <span class="font-caption-caps text-caption-caps text-outline block">Paid
+                                            Attendance</span>
+                                        <span class="font-headline-sm text-headline-sm font-bold text-on-surface">20
+                                            <span
+                                                class="font-body-sm text-body-sm font-normal text-on-surface-variant">/
+                                                31 days</span></span>
+                                        <span
+                                            class="font-caption-caps text-caption-caps text-outline-variant block mt-0.5">11
+                                            LOP/Unpaid Days</span>
+                                    </div>
+                                    <div
+                                        class="col-span-2 sm:col-span-1 bg-surface-container-highest p-space-sm rounded-lg shadow-sm flex flex-col justify-center">
+                                        <span
+                                            class="font-caption-caps text-caption-caps text-primary uppercase font-bold block">Net
+                                            Calculated Pay</span>
+                                        <span
+                                            class="font-label-numeric-lg text-label-numeric-lg text-primary font-bold">₹30,758.07</span>
+                                        <span
+                                            class="font-caption-caps text-caption-caps text-on-surface-variant block">INR
+                                            (Form 16 Balanced)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Channel & Security Protocol Box -->
+                            <div class="bg-surface-container-lowest p-space-md rounded-xl mt-space-md shadow-sm">
+                                <h3
+                                    class="font-headline-sm text-headline-sm text-on-surface mb-space-sm flex items-center gap-space-xs">
+                                    <span class="material-symbols-outlined text-primary text-lg">mark_email_read</span>
+                                    <span>Primary Delivery Channel &amp; Encryption</span>
+                                </h3>
+                                <div
+                                    class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md p-space-sm rounded-lg bg-surface-container-low mb-space-sm">
+                                    <div class="flex items-center gap-space-sm">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+                                            <span class="material-symbols-outlined text-lg">lock</span>
+                                        </div>
+                                        <div>
+                                            <p class="font-body-sm text-body-sm font-semibold text-on-surface">
+                                                Password-Protected PDF Attachment</p>
+                                            <p class="font-caption-caps text-caption-caps text-outline">Standard AES-256
+                                                HR Encrypted Envelope</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-space-xs font-label-numeric-sm text-label-numeric-sm text-on-surface-variant bg-surface-container-lowest px-space-sm py-1 rounded shadow-sm">
+                                        <span class="material-symbols-outlined text-sm text-secondary">vpn_key</span>
+                                        <span>Format: PAN[First4] + DDMM(DOB)</span>
+                                    </div>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    When prepared, the financial register will package statutory ledger calculations,
+                                    tax deductibles, and leave adjustments into candidate file archive <code
+                                        class="font-label-numeric-sm text-label-numeric-sm px-1 py-0.5 rounded bg-surface-container text-primary font-semibold">PS-202610-EMP1024.pdf</code>.
+                                </p>
+                            </div>
+                            <!-- Action trigger trigger button inside card -->
+                            <div
+                                class="mt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-md">
+                                <div
+                                    class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                                    <span class="material-symbols-outlined text-sm text-secondary">verified</span>
+                                    <span>Ledger balance verified against bank file</span>
+                                </div>
+                                <button
+                                    class="w-full sm:w-auto px-space-xl py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-headline-sm text-body-md font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-space-xs"
+                                    onclick="openConfirmationModal()" type="button">
+                                    <span class="material-symbols-outlined text-lg">inventory</span>
+                                    <span>Prepare for distribution</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- STATE 3: SUCCESS STATE (Hidden by default, switched via tab or confirm action) -->
+                    <div class="hidden flex-col gap-space-lg" id="view-success">
+                        <div
+                            class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md relative overflow-hidden">
+                            <!-- Calibrated emerald glow for institutional poise -->
+                            <div
+                                class="absolute -top-20 -right-20 w-56 h-56 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none">
+                            </div>
+                            <div class="flex flex-col items-center text-center max-w-lg mx-auto py-space-md">
+                                <!-- Modern Restrained Success Icon with gentle aura -->
+                                <div
+                                    class="relative flex items-center justify-center w-16 h-16 rounded-full bg-tertiary text-on-tertiary shadow-md mb-space-md">
+                                    <span class="material-symbols-outlined text-3xl">check</span>
+                                    <span
+                                        class="absolute inset-0 rounded-full bg-tertiary animate-ping opacity-20 pointer-events-none"></span>
+                                </div>
+                                <span
+                                    class="px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-caption-caps text-caption-caps font-bold tracking-wider uppercase mb-space-xs">
+                                    Stage Completed
+                                </span>
+                                <h2
+                                    class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight mb-space-xs">
+                                    Prepared for distribution</h2>
+                                <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+                                    The payslip document ledger for <span class="text-on-surface font-semibold">Aarav
+                                        Sharma</span> has been compiled, checksummed, and entered into the dispatch
+                                    queue.
+                                </p>
+                                <!-- Important Frontend Demo Notice Banner -->
+                                <div
+                                    class="w-full bg-surface-container-high p-space-md rounded-xl text-left flex items-start gap-space-sm mb-space-lg shadow-sm">
+                                    <span
+                                        class="material-symbols-outlined text-secondary text-xl flex-shrink-0 mt-0.5">info</span>
+                                    <div>
+                                        <p class="font-headline-sm text-body-sm text-on-surface font-semibold">
+                                            Simulation Mode Only</p>
+                                        <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                                            Nothing was emailed or delivered. This is a frontend-only confirmation
+                                            demonstrating the administrative payroll workflow.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Staged Ledger Details Card -->
+                                <div
+                                    class="w-full bg-surface-container-low p-space-md rounded-xl text-left mb-space-lg shadow-inner">
+                                    <div class="flex items-center justify-between pb-space-xs mb-space-sm">
+                                        <span class="font-caption-caps text-caption-caps text-outline uppercase">Queue
+                                            Token #DISP-9941</span>
+                                        <span
+                                            class="px-space-sm py-0.5 rounded bg-tertiary text-on-tertiary font-caption-caps text-caption-caps font-semibold">Prepared
+                                            &amp; Staged</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-space-sm text-left">
+                                        <div>
+                                            <span
+                                                class="font-caption-caps text-caption-caps text-outline block">Candidate</span>
+                                            <span class="font-body-md text-body-md font-semibold text-on-surface">Aarav
+                                                Sharma</span>
+                                        </div>
+                                        <div>
+                                            <span
+                                                class="font-caption-caps text-caption-caps text-outline block">Cycle</span>
+                                            <span class="font-body-md text-body-md font-semibold text-on-surface">Oct
+                                                2026</span>
+                                        </div>
+                                        <div>
+                                            <span class="font-caption-caps text-caption-caps text-outline block">Net
+                                                Amount</span>
+                                            <span
+                                                class="font-label-numeric-md text-label-numeric-md font-bold text-primary">₹30,758.07</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Post-Completion Primary & Secondary Actions -->
+                                <div class="flex flex-col sm:flex-row items-center gap-space-md w-full justify-center">
+                                    <button
+                                        class="w-full sm:w-auto px-space-lg py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-headline-sm text-body-sm font-semibold transition-all"
+                                        onclick="switchState('review')" type="button">
+                                        Back to review
+                                    </button>
+                                    <button
+                                        class="w-full sm:w-auto px-space-xl py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-headline-sm text-body-sm font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5"
+                                        onclick="resetToNewSlip()" type="button">
+                                        <span class="material-symbols-outlined text-sm">add_circle</span>
+                                        <span>Start another payslip</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- RIGHT 5 COLUMNS: Live Mini Document Preview + Edge Case Sandbox Card -->
+                <div class="lg:col-span-5 flex flex-col gap-space-lg">
+                    <!-- Physical Printable Slip Simulation Preview Card -->
+                    <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-lg relative flex flex-col">
+                        <div class="flex items-center justify-between pb-space-sm mb-space-sm">
+                            <div
+                                class="flex items-center gap-space-xs font-caption-caps text-caption-caps text-on-surface uppercase font-bold tracking-wider">
+                                <span class="material-symbols-outlined text-sm text-primary">description</span>
+                                <span>Live Document Stamp Preview</span>
+                            </div>
+                            <span
+                                class="px-space-xs py-0.5 rounded bg-surface-container text-outline font-caption-caps text-caption-caps">PDF
+                                Output</span>
+                        </div>
+                        <!-- Realistic A4 Slip Representation Box -->
+                        <div
+                            class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col text-on-surface">
+                            <!-- Payslip Header -->
+                            <div class="flex items-center justify-between pb-space-xs mb-space-xs">
+                                <div>
+                                    <span
+                                        class="font-headline-sm text-body-sm text-on-surface font-bold uppercase tracking-tight">NorthStar
+                                        Technologies Ltd</span>
+                                    <p class="font-caption-caps text-caption-caps text-outline">Payroll Slip &amp; Tax
+                                        Deduction Statement</p>
+                                </div>
+                                <span
+                                    class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-numeric-sm text-label-numeric-sm font-semibold">FORM
+                                    16A</span>
+                            </div>
+                            <!-- Metadata table mini -->
+                            <div
+                                class="grid grid-cols-2 gap-space-xs py-space-xs bg-surface-container-low px-space-xs rounded mb-space-sm text-[11px] leading-tight">
+                                <div><span class="text-outline">Emp Name:</span> <strong
+                                        class="text-on-surface font-semibold">Aarav Sharma</strong></div>
+                                <div><span class="text-outline">Emp ID:</span> <span
+                                        class="font-label-numeric-sm text-label-numeric-sm text-on-surface">EMP-1024</span>
+                                </div>
+                                <div><span class="text-outline">Period:</span> <strong class="text-on-surface">October
+                                        2026</strong></div>
+                                <div><span class="text-outline">Paid Days:</span> <span
+                                        class="font-label-numeric-sm text-label-numeric-sm font-bold text-on-surface">20
+                                        / 31</span></div>
+                            </div>
+                            <!-- Earnings vs Deductions Split Ledger -->
+                            <div class="grid grid-cols-2 gap-space-sm pb-space-sm">
+                                <!-- Left: Earnings -->
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-caption-caps text-caption-caps text-outline uppercase pb-0.5 mb-1">Earnings</span>
+                                    <div class="space-y-1 font-body-sm text-[11px]">
+                                        <div class="flex justify-between text-on-surface-variant"><span>Basic
+                                                Pay</span><span
+                                                class="font-label-numeric-sm text-label-numeric-sm text-on-surface">₹24,500.00</span>
+                                        </div>
+                                        <div class="flex justify-between text-on-surface-variant"><span>House Rent
+                                                (HRA)</span><span
+                                                class="font-label-numeric-sm text-label-numeric-sm text-on-surface">₹9,800.00</span>
+                                        </div>
+                                        <div class="flex justify-between text-on-surface-variant"><span>Special
+                                                Allowance</span><span
+                                                class="font-label-numeric-sm text-label-numeric-sm text-on-surface">₹3,200.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Right: Deductions -->
+                                <div class="flex flex-col">
+                                    <span
+                                        class="font-caption-caps text-caption-caps text-outline uppercase pb-0.5 mb-1">Deductions</span>
+                                    <div class="space-y-1 font-body-sm text-[11px]">
+                                        <div class="flex justify-between text-on-surface-variant"><span>Provident
+                                                Fund</span><span
+                                                class="font-label-numeric-sm text-label-numeric-sm text-on-surface">₹2,940.00</span>
+                                        </div>
+                                        <div class="flex justify-between text-on-surface-variant"><span>Professional
+                                                Tax</span><span
+                                                class="font-label-numeric-sm text-label-numeric-sm text-on-surface">₹200.00</span>
+                                        </div>
+                                        <div class="flex justify-between text-on-surface-variant"><span>TDS / Income
+                                                Tax</span><span
+                                                class="font-label-numeric-sm text-label-numeric-sm text-on-surface">₹3,601.93</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Highlight Net Row -->
+                            <div
+                                class="bg-surface-container-high p-space-sm rounded flex items-center justify-between mt-auto shadow-sm">
+                                <div>
+                                    <span
+                                        class="font-caption-caps text-caption-caps text-primary uppercase font-bold">Net
+                                        Salary Payable</span>
+                                    <p class="font-caption-caps text-[10px] text-on-surface-variant">Thirty Thousand
+                                        Seven Hundred Fifty-Eight &amp; 07/100</p>
+                                </div>
+                                <span
+                                    class="font-label-numeric-lg text-label-numeric-lg font-bold text-primary">₹30,758.07</span>
+                            </div>
+                        </div>
+                        <!-- Document Security Watermark Stamp -->
+                        <div
+                            class="mt-space-sm flex items-center justify-between text-on-surface-variant font-caption-caps text-caption-caps px-space-xs">
+                            <span class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs text-tertiary">check_circle</span>
+                                Form-16 Certified Template
+                            </span>
+                            <span class="font-label-numeric-sm text-label-numeric-sm">CRC32: 9C81D3F0</span>
+                        </div>
+                    </div>
+                    <!-- EDGE CASE SHOWCASE CARD: Candidate with Missing Email Address -->
+                    <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-md relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-space-sm">
+                            <div
+                                class="flex items-center gap-space-xs font-caption-caps text-caption-caps text-error uppercase font-bold tracking-wider">
+                                <span class="material-symbols-outlined text-base text-error">warning</span>
+                                <span>Edge Case Simulation</span>
+                            </div>
+                            <span
+                                class="px-space-xs py-0.5 rounded bg-error-container text-on-error-container font-caption-caps text-caption-caps font-bold">Blocked
+                                Dispatch</span>
+                        </div>
+                        <div class="p-space-sm rounded-lg bg-surface-container-low mb-space-sm shadow-inner">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-body-sm text-body-sm font-semibold text-on-surface">Sunita Rao</p>
+                                    <p class="font-caption-caps text-caption-caps text-outline">Candidate ID: EMP-1032
+                                    </p>
+                                </div>
+                                <span
+                                    class="px-space-xs py-0.5 rounded bg-surface-container-high text-error font-caption-caps text-caption-caps font-bold">No
+                                    Email Stored</span>
+                            </div>
+                        </div>
+                        <!-- Warning Alert Box -->
+                        <div
+                            class="p-space-sm rounded-lg bg-error-container text-on-error-container text-body-sm font-body-sm leading-snug mb-space-sm flex items-start gap-space-xs shadow-sm">
+                            <span class="material-symbols-outlined text-lg flex-shrink-0 text-error">error</span>
+                            <div>
+                                <span class="font-semibold block font-headline-sm text-body-sm">Missing Candidate
+                                    Email</span>
+                                <span>Missing email address for candidate: <strong
+                                        class="font-semibold">EMP-1032</strong> — primary action 'Prepare for
+                                    distribution' is disabled until an email is provided in employee profile.</span>
+                            </div>
+                        </div>
+                        <!-- Disabled Action Simulator with Lock Badge -->
+                        <div class="flex items-center justify-between gap-space-sm pt-space-xs">
+                            <div
+                                class="flex items-center gap-1 text-on-surface-variant font-caption-caps text-caption-caps">
+                                <span class="material-symbols-outlined text-sm">lock</span>
+                                <span>Read-only locked ledger</span>
+                            </div>
+                            <button
+                                class="px-space-md py-1.5 rounded-lg bg-surface-container-highest text-outline font-headline-sm text-body-sm cursor-not-allowed opacity-75 shadow-none flex items-center gap-1"
+                                disabled="" type="button">
+                                <span class="material-symbols-outlined text-sm">block</span>
+                                <span>Prepare for distribution</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- STATE 2: CONFIRMATION MODAL OVERLAY (Controlled via JS) -->
+            <div class="fixed inset-0 z-50 flex items-center justify-center p-space-md bg-inverse-surface/60 backdrop-blur-sm hidden transition-opacity duration-200"
+                id="modal-confirm">
+                <div
+                    class="bg-surface-container-lowest w-full max-w-lg rounded-xl shadow-xl overflow-hidden transform transition-transform duration-200">
+                    <!-- Modal Header -->
+                    <div class="bg-surface-container-low px-space-lg py-space-md flex items-center justify-between">
+                        <div class="flex items-center gap-space-sm">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-base">verified_user</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Confirm Payslip
+                                    Preparation</h3>
+                                <p class="font-caption-caps text-caption-caps text-outline uppercase tracking-wider">
+                                    Payroll Ledger Authorization</p>
+                            </div>
+                        </div>
+                        <button
+                            class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface flex items-center justify-center transition-colors"
+                            onclick="closeConfirmationModal()" type="button">
+                            <span class="material-symbols-outlined text-xl">close</span>
+                        </button>
+                    </div>
+                    <!-- Modal Body -->
+                    <div class="p-space-lg flex flex-col gap-space-md">
+                        <!-- Explanation Text -->
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            The application is preparing the payslip record for final HR dispatch and locking the
+                            payroll ledger for this employee.
+                        </p>
+                        <!-- Repeated Verification Summary Card -->
+                        <div class="bg-surface-container-low p-space-md rounded-xl space-y-space-sm shadow-sm">
+                            <div class="flex justify-between items-center text-body-sm font-body-sm">
+                                <span class="text-outline">Recipient:</span>
+                                <div class="text-right">
+                                    <span class="font-semibold text-on-surface block">Aarav Sharma</span>
+                                    <span
+                                        class="font-label-numeric-sm text-label-numeric-sm text-primary">aarav.sharma@northstartech.io</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center text-body-sm font-body-sm">
+                                <span class="text-outline">Period:</span>
+                                <span class="font-semibold text-on-surface">October 2026</span>
+                            </div>
+                            <div class="flex justify-between items-center text-body-sm font-body-sm">
+                                <span class="text-outline">Attendance Units:</span>
+                                <span class="font-body-sm text-body-sm text-on-surface">20 Days Payable (31
+                                    Total)</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-space-xs">
+                                <span class="font-caption-caps text-caption-caps text-primary uppercase font-bold">Net
+                                    Pay Amount:</span>
+                                <span
+                                    class="font-label-numeric-lg text-label-numeric-lg text-primary font-bold">₹30,758.07</span>
+                            </div>
+                        </div>
+                        <!-- Security / Ledger Locking Notice -->
+                        <div
+                            class="flex items-start gap-space-xs text-on-surface-variant font-caption-caps text-caption-caps">
+                            <span class="material-symbols-outlined text-sm text-tertiary">lock_clock</span>
+                            <span>Confirmation marks attendance and tax deductions as certified. Manual overrides will
+                                require an audit request.</span>
+                        </div>
+                    </div>
+                    <!-- Modal Actions Footer -->
+                    <div
+                        class="bg-surface-container px-space-lg py-space-md flex flex-col-reverse sm:flex-row items-center justify-end gap-space-sm">
+                        <button
+                            class="w-full sm:w-auto px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-headline-sm text-body-sm font-medium transition-colors shadow-sm"
+                            onclick="closeConfirmationModal()" type="button">
+                            Cancel
+                        </button>
+                        <button
+                            class="w-full sm:w-auto px-space-lg py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-headline-sm text-body-sm font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
+                            onclick="executeConfirmPreparation()" type="button">
+                            <span class="material-symbols-outlined text-base">check_circle</span>
+                            <span>Confirm &amp; Prepare</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Dedicated Workflow Navigation Rail at bottom of Step 4 screen -->
+            <div
+                class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col sm:flex-row items-center justify-between gap-space-md mt-space-md">
+                <button
+                    class="w-full sm:w-auto px-space-md py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-headline-sm text-body-sm font-medium transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                    onclick="alert('Returning to Step 3: Review Payslip (Ledger Audit)')" type="button">
+                    <span class="material-symbols-outlined text-base">arrow_back</span>
+                    <span>Back to Review Payslip</span>
+                </button>
+                <div class="flex items-center gap-space-md w-full sm:w-auto">
+                    <span
+                        class="hidden md:inline-flex items-center gap-1 font-caption-caps text-caption-caps text-outline">
+                        <span class="material-symbols-outlined text-sm">schedule</span>
+                        <span>Dispatches sync daily at 23:59 UTC</span>
+                    </span>
+                    <button
+                        class="w-full sm:w-auto px-space-xl py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-headline-sm text-body-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-1.5"
+                        id="bottom-bar-action-btn" onclick="openConfirmationModal()" type="button">
+                        <span class="material-symbols-outlined text-base">inventory_2</span>
+                        <span>Prepare for distribution</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Interactive Logic for State Transitions -->
+            <script>
+                function switchState(stateName) {
+                    const reviewView = document.getElementById('view-review');
+                    const successView = document.getElementById('view-success');
+                    const tabReview = document.getElementById('tab-state-review');
+                    const tabSuccess = document.getElementById('tab-state-success');
+                    const bottomBtn = document.getElementById('bottom-bar-action-btn');
+
+                    if (stateName === 'success') {
+                        reviewView.classList.add('hidden');
+                        successView.classList.remove('hidden');
+                        successView.classList.add('flex');
+
+                        tabSuccess.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                        tabSuccess.classList.remove('text-on-surface-variant');
+                        tabReview.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                        tabReview.classList.add('text-on-surface-variant');
+
+                        if (bottomBtn) {
+                            bottomBtn.innerHTML = '<span class="material-symbols-outlined text-base">task_alt</span><span>Prepared & Staged</span>';
+                            bottomBtn.classList.remove('bg-primary-container');
+                            bottomBtn.classList.add('bg-tertiary', 'pointer-events-none');
+                        }
+                    } else {
+                        successView.classList.add('hidden');
+                        successView.classList.remove('flex');
+                        reviewView.classList.remove('hidden');
+                        reviewView.classList.add('flex');
+
+                        tabReview.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                        tabReview.classList.remove('text-on-surface-variant');
+                        tabSuccess.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                        tabSuccess.classList.add('text-on-surface-variant');
+
+                        if (bottomBtn) {
+                            bottomBtn.innerHTML = '<span class="material-symbols-outlined text-base">inventory_2</span><span>Prepare for distribution</span>';
+                            bottomBtn.classList.remove('bg-tertiary', 'pointer-events-none');
+                            bottomBtn.classList.add('bg-primary-container');
+                        }
+                    }
+                }
+
+                function openConfirmationModal() {
+                    const modal = document.getElementById('modal-confirm');
+                    modal.classList.remove('hidden');
+                }
+
+                function closeConfirmationModal() {
+                    const modal = document.getElementById('modal-confirm');
+                    modal.classList.add('hidden');
+                }
+
+                function executeConfirmPreparation() {
+                    closeConfirmationModal();
+                    switchState('success');
+                }
+
+                function resetToNewSlip() {
+                    switchState('review');
+                }
+            </script>
+        </div>
+    </main>
+    <footer
+        class="w-full bg-surface-container-lowest border-t border-outline-variant shadow-[0_-2px_10px_rgba(0,0,0,0.03)]">
+        <div
+            class="max-w-6xl mx-auto px-margin py-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+            <div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span
+                    class="material-symbols-outlined text-sm">verified_user</span><span>Certified financial audit ledger
+                    format (Form 16 / Payment of Wages Act ready)</span></div>
+            <div class="flex items-center gap-space-md w-full sm:w-auto justify-end"><button
+                    class="px-space-md py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-body-sm text-body-sm transition-colors"
+                    type="button">Back</button><button
+                    class="px-space-lg py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-sm text-body-sm font-semibold transition-colors flex items-center gap-1.5"
+                    type="button"><span>Continue to Review</span><span
+                        class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+        </div>
+    </footer>
+</body>
+
+</html>
