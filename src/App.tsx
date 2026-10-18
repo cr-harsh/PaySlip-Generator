@@ -7,6 +7,7 @@ import { Step2SalaryAttendance } from './components/Step2SalaryAttendance';
 import { Step3BreakdownPreview } from './components/Step3BreakdownPreview';
 import { Step4DistributionConfirm } from './components/Step4DistributionConfirm';
 import { Footer } from './components/Footer';
+import { WorkflowSidebar } from './components/WorkflowSidebar';
 
 import { MOCK_CLIENTS, MOCK_CANDIDATES } from './data/mockData';
 import {
@@ -155,7 +156,9 @@ export function App() {
       />
 
       {/* Main Content Area with Header offset */}
-      <div className="pt-16 flex-1 flex flex-col">
+      <div className="min-h-screen md:ml-60 lg:ml-64 md:h-screen md:overflow-y-auto md:overscroll-contain">
+        <WorkflowSidebar onNavigateHome={() => setScreen('home')} />
+        <div className="min-w-0 flex min-h-screen flex-col pt-16 md:min-h-full">
         {/* Sub-header Hero & Stepper Shell */}
         <div className="bg-white border-b border-outline-variant/40 shadow-2xs">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
@@ -275,6 +278,7 @@ export function App() {
 
         {/* Certified Footer */}
         <Footer />
+        </div>
       </div>
     </div>
   );

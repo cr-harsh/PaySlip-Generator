@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigateHome,
 }) => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-outline-variant/40 shadow-xs">
+    <header className="fixed top-0 left-0 right-0 md:left-60 lg:left-64 z-50 bg-white/95 backdrop-blur-md border-b border-outline-variant/40 shadow-xs">
       <div className="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand & Context */}
         <div className="flex items-center gap-3 sm:gap-4 min-w-0">
