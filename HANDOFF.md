@@ -24,6 +24,9 @@
 - PT and IF are accounted for before proration and are not deducted a second time from net pay.
 - An additional validation safeguard prevents PT plus IF from exceeding monthly CTC.
 
+- ##Scope note:
+- I've intentionally kept the application frontend-only, as specified in the assignment brief. Features such as Google login, authentication, backend APIs, database persistence, and real-user data integration have not been added because they fall outside the requested scope. The application uses mock data and frontend state, with no actual email or file delivery. I'd appreciate the implementation being evaluated against the stated frontend requirements, calculation accuracy, validation, and overall workflow.
+
 ## Edge cases tested
 - Verified the Section 6 reference calculation and a separate custom scenario: CTC ₹75,000, September 2026, 24 working days, 3 leave days, PF enabled, PT ₹250, TDS ₹2,200, and advance ₹1,250. The displayed gross was ₹51,835.00 and net pay was ₹44,185.00.
 - Checked PF enabled versus disabled and full-attendance calculations.
