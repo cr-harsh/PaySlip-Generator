@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Header } from './components/Header';
+import { HomePage } from './components/HomePage';
 import { Stepper } from './components/Stepper';
 import { Step1ClientCandidate } from './components/Step1ClientCandidate';
 import { Step2SalaryAttendance } from './components/Step2SalaryAttendance';
@@ -25,6 +26,7 @@ import type {
 } from './types/payroll';
 
 export function App() {
+  const [screen, setScreen] = useState<'home' | 'workflow'>('home');
   const [currentStep, setCurrentStep] = useState<WorkflowStep>(1);
 
   // Step 1 State: Selected Client and Candidate
@@ -131,6 +133,17 @@ export function App() {
 
   const periodLabel = `${MONTH_NAMES[inputs.month - 1]} ${inputs.year}`;
 
+  if (screen === 'home') {
+    return (
+      <HomePage
+        onGeneratePayslip={() => {
+          setCurrentStep(1);
+          setScreen('workflow');
+        }}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-surface flex flex-col text-on-surface antialiased font-sans">
       {/* Top Application Header */}
@@ -138,6 +151,7 @@ export function App() {
         selectedCandidate={selectedCandidate}
         periodLabel={periodLabel}
         isPrepared={isPrepared}
+        onNavigateHome={() => setScreen('home')}
       />
 
       {/* Main Content Area with Header offset */}

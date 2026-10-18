@@ -221,7 +221,9 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
                         Pay Period
                       </span>
                       {isPrepared && (
-                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                        <span title="Locked after confirmation" className="inline-flex items-center">
+                          <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                        </span>
                       )}
                     </div>
                     <span className="font-semibold text-on-surface">
@@ -238,7 +240,9 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
                         Paid Attendance
                       </span>
                       {isPrepared && (
-                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                        <span title="Locked after confirmation" className="inline-flex items-center">
+                          <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                        </span>
                       )}
                     </div>
                     <span className="font-mono font-bold text-on-surface">
@@ -255,7 +259,9 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
                         Net Calculated Pay
                       </span>
                       {isPrepared && (
-                        <LockKeyhole className="w-3 h-3 text-primary" title="Locked after confirmation" />
+                        <span title="Locked after confirmation" className="inline-flex items-center">
+                          <LockKeyhole className="w-3 h-3 text-primary" />
+                        </span>
                       )}
                     </div>
                     <span className="font-mono font-bold text-sm sm:text-base text-primary">
@@ -441,7 +447,9 @@ export const Step4DistributionConfirm: React.FC<Step4Props> = ({
                 <FileCheck className="w-4 h-4 text-primary" />
                 <span>Prepared Payslip Summary</span>
                 {isPrepared && (
-                  <LockKeyhole className="w-3.5 h-3.5 text-primary" title="Locked after confirmation" />
+                  <span title="Locked after confirmation" className="inline-flex items-center">
+                    <LockKeyhole className="w-3.5 h-3.5 text-primary" />
+                  </span>
                 )}
               </span>
               {isPrepared ? (

@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-derive: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-primary: #0037b0;
@@ -82,4 +83,29 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #747686;
+}
+
+@keyframes home-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.home-float-card {
+  animation: home-float 5.5s ease-in-out infinite;
+}
+
+.home-float-card-delayed {
+  animation: home-float 6.2s ease-in-out 0.8s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-float-card,
+  .home-float-card-delayed {
+    animation: none;
+  }
 }

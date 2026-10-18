@@ -141,7 +141,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                     <span>Monthly HR CTC (Base Cost)</span>
                     {!isPrepared && <span className="text-error">*</span>}
                     {isPrepared && (
-                      <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                      <span title="Locked after confirmation" className="inline-flex items-center">
+                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                      </span>
                     )}
                   </label>
                   <span className="font-mono text-xs text-primary font-semibold">
@@ -194,7 +196,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                   <span>Payslip Month / Year</span>
                   {!isPrepared && <span className="text-error">*</span>}
                   {isPrepared && (
-                    <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                    <span title="Locked after confirmation" className="inline-flex items-center">
+                      <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                    </span>
                   )}
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -282,7 +286,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                     <span>Working Days</span>
                     {!isPrepared && <span className="text-error">*</span>}
                     {isPrepared && (
-                      <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                      <span title="Locked after confirmation" className="inline-flex items-center">
+                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                      </span>
                     )}
                   </label>
                   <span className="text-[10px] font-mono text-on-surface-variant">
@@ -340,7 +346,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                     <span>Leave Days (LOP)</span>
                     {!isPrepared && <span className="text-error">*</span>}
                     {isPrepared && (
-                      <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                      <span title="Locked after confirmation" className="inline-flex items-center">
+                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                      </span>
                     )}
                   </label>
                   <span className="text-[10px] font-bold text-error">UNPAID</span>
@@ -446,7 +454,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                     <span className="text-xs font-bold text-on-surface flex items-center gap-1">
                       <span>PF Applicable (EPF Act)</span>
                       {isPrepared && (
-                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                        <span title="Locked after confirmation" className="inline-flex items-center">
+                          <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                        </span>
                       )}
                     </span>
                     <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed">
@@ -489,7 +499,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                     <span>Professional Tax (PT)</span>
                     {!isPrepared && <span className="text-error">*</span>}
                     {isPrepared && (
-                      <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                      <span title="Locked after confirmation" className="inline-flex items-center">
+                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                      </span>
                     )}
                   </label>
                   <span className="text-[10px] font-bold uppercase text-primary">
@@ -575,7 +587,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                   >
                     <span>TDS (Income Tax)</span>
                     {isPrepared && (
-                      <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                      <span title="Locked after confirmation" className="inline-flex items-center">
+                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                      </span>
                     )}
                   </label>
                   <span className="text-[10px] font-mono text-on-surface-variant">
@@ -631,7 +645,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                   >
                     <span>Advance Deduction / Recovery</span>
                     {isPrepared && (
-                      <LockKeyhole className="w-3 h-3 text-on-surface-variant" title="Locked after confirmation" />
+                      <span title="Locked after confirmation" className="inline-flex items-center">
+                        <LockKeyhole className="w-3 h-3 text-on-surface-variant" />
+                      </span>
                     )}
                   </label>
                   <span className="text-[10px] font-mono text-on-surface-variant">
@@ -690,7 +706,9 @@ export const Step2SalaryAttendance: React.FC<Step2Props> = ({
                 <Shield className="w-4 h-4 text-primary" />
                 <span>Live Computation Preview</span>
                 {isPrepared && (
-                  <LockKeyhole className="w-3.5 h-3.5 text-primary" title="Locked after confirmation" />
+                  <span title="Locked after confirmation" className="inline-flex items-center">
+                    <LockKeyhole className="w-3.5 h-3.5 text-primary" />
+                  </span>
                 )}
               </span>
               {isPrepared ? (

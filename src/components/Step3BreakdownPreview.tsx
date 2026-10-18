@@ -93,7 +93,9 @@ export const Step3BreakdownPreview: React.FC<Step3Props> = ({
                   Contract & Proration Profile
                 </h3>
                 {isPrepared && (
-                  <LockKeyhole className="w-3.5 h-3.5 text-on-surface-variant" title="Locked after confirmation" />
+                  <span title="Locked after confirmation" className="inline-flex items-center">
+                    <LockKeyhole className="w-3.5 h-3.5 text-on-surface-variant" />
+                  </span>
                 )}
               </div>
               <span className="text-[10px] font-mono uppercase font-bold text-secondary">
@@ -209,7 +211,9 @@ export const Step3BreakdownPreview: React.FC<Step3Props> = ({
                   Earnings Breakdown Schedule
                 </h3>
                 {isPrepared && (
-                  <LockKeyhole className="w-3.5 h-3.5 text-on-surface-variant" title="Locked after confirmation" />
+                  <span title="Locked after confirmation" className="inline-flex items-center">
+                    <LockKeyhole className="w-3.5 h-3.5 text-on-surface-variant" />
+                  </span>
                 )}
               </div>
               <span className="text-[10px] font-mono uppercase font-bold text-tertiary">
@@ -310,7 +314,9 @@ export const Step3BreakdownPreview: React.FC<Step3Props> = ({
                   Deductions Ledger & Statutory Reconciliation
                 </h3>
                 {isPrepared && (
-                  <LockKeyhole className="w-3.5 h-3.5 text-on-surface-variant" title="Locked after confirmation" />
+                  <span title="Locked after confirmation" className="inline-flex items-center">
+                    <LockKeyhole className="w-3.5 h-3.5 text-on-surface-variant" />
+                  </span>
                 )}
               </div>
               <span className="text-[10px] font-mono uppercase font-bold text-error">

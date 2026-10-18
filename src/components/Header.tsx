@@ -6,19 +6,26 @@ interface HeaderProps {
   selectedCandidate: Candidate | null;
   periodLabel: string;
   isPrepared: boolean;
+  onNavigateHome?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   selectedCandidate,
   periodLabel,
   isPrepared,
+  onNavigateHome,
 }) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-outline-variant/40 shadow-xs">
       <div className="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand & Context */}
         <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-          <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={onNavigateHome}
+            className="flex items-center gap-2 shrink-0 rounded-lg text-left hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            aria-label="Back to homepage"
+          >
             <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm ring-2 ring-primary/20">
               <span className="font-bold text-lg tracking-tight">P</span>
             </div>
@@ -30,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
                 ATS Payroll
               </span>
             </div>
-          </div>
+          </button>
 
           <span className="hidden sm:inline-flex px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant text-[11px] font-semibold tracking-wide border border-outline-variant/60 uppercase">
             Frontend demo
