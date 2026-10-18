@@ -158,7 +158,7 @@ export function App() {
       {/* Main Content Area with Header offset */}
       <div className="min-h-[100dvh] md:ml-60 lg:ml-64 md:h-[100dvh] md:overflow-y-auto md:overscroll-contain">
         <WorkflowSidebar onNavigateHome={() => setScreen('home')} />
-        <div className="min-w-0 flex min-h-[100dvh] flex-col pt-16 md:min-h-full">
+        <div className="min-w-0 flex min-h-[100dvh] flex-col pt-[calc(4rem+env(safe-area-inset-top))] md:min-h-full">
         {/* Sub-header Hero & Stepper Shell */}
         <div className="bg-white border-b border-outline-variant/40 shadow-2xs">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
